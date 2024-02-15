@@ -21,7 +21,6 @@ function openMenu() {
   menu.value = !menu.value
 }
 </script>
-
 <template>
   <div class="app">
     <div class="app-wrapper">
