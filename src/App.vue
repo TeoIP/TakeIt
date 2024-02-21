@@ -170,7 +170,7 @@ function openLanguage() {
         </div>
         <div class="one-slide wrapper">
           <div class="back-shape">
-            <svg xmlns="http://www.w3.org/2000/svg" width="425" height="501" viewBox="0 0 425 501" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="330" height="600" viewBox="0 0 330 600" fill="none">
               <g filter="url(#filter0_f_139_3249)">
                 <path
                   d="M21.8446 376.417C-59.2003 426.654 -219.955 388.789 -248.231 343.173C-276.506 297.558 -150.276 200.345 -69.2307 150.108C11.8142 99.871 294.389 80.6603 322.665 126.276C350.941 171.892 102.889 326.18 21.8446 376.417Z"
@@ -255,6 +255,113 @@ function openLanguage() {
                   инновационных технологий. Наша команда экспертов способствует развитию вашего бизнеса, внедряя передовые
                   и перспективные технологические решения.</div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="one-slide wrapper">
+          <div class="percent-slide">
+            <div class="percent-stats">
+              <div class="top-percent">
+                <div class="one-circle">
+                  <div class="percent-title" v-if="language">Obiecte deschise</div>
+                  <div class="percent-title" v-if="!language">Открытые объекты</div>
+                  <div class="percent-nr">700</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                      <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#e91e63" />
+                        <stop offset="100%" stop-color="#673ab7" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                  </svg>
+                </div>
+                <div class="one-circle">
+                  <div class="percent-title" v-if="language">Produse</div>
+                  <div class="percent-title" v-if="!language">Продукты</div>
+                  <div class="percent-nr">10000</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                      <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#e91e63" />
+                        <stop offset="100%" stop-color="#673ab7" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="midlle-percent">
+                <div class="one-circle">
+                  <div class="percent-title" v-if="language">Clienți mulțumiți</div>
+                  <div class="percent-title" v-if="!language">Довольные клиенты</div>
+                  <div class="percent-nr">1000</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                      <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#e91e63" />
+                        <stop offset="100%" stop-color="#673ab7" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                  </svg>
+                </div>
+                <div class="one-circle">
+                  <div class="percent-title" v-if="language">Experți angajați</div>
+                  <div class="percent-title" v-if="!language">Нанятые специалисты</div>
+                  <div class="percent-nr">38</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                      <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#e91e63" />
+                        <stop offset="100%" stop-color="#673ab7" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+              <div class="bottom-percent">
+                <div class="one-circle">
+                  <div class="percent-title" v-if="language">Experiența angajaților</div>
+                  <div class="percent-title" v-if="!language">Опыт сотрудников</div>
+                  <div class="percent-nr">+20</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                      <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#e91e63" />
+                        <stop offset="100%" stop-color="#673ab7" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                  </svg>
+                </div>
+                <div class="one-circle">
+                  <div class="percent-title">Call-center</div>
+                  <div class="percent-nr">24/7</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                      <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#e91e63" />
+                        <stop offset="100%" stop-color="#673ab7" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="percent-info">
+              <div class="percent-info-title" v-if="language">
+                INOVĂM CU <span class="bold-green">EFICIENȚĂ</span>, TRANSFORMĂM PROVOCĂRI ÎN <span
+                  class="bold-green">OPORTUNITĂȚI</span>, ADUCÂND SOLUȚII DE IMPACT.
+              </div>
+              <div class="percent-title" v-if="!language">
+                МЫ <span class="bold-green">ЭФФЕКТИВНО</span>ВНЕДРЯЕМ ИННОВАЦИИ, ПРЕВРАЩАЕМ ПРОБЛЕМЫ В<span
+                  class="bold-green">ВОЗМОЖНОСТИ</span>, ПРЕДЛАГАЯ ЭФФЕКТИВНЫЕ РЕШЕНИЯ.
+              </div>
+              <div class="percent-link" v-if="language">Află mai multe despre noi</div>
+              <div class="percent-link" v-if="!language">Узнайте больше о нас</div>
             </div>
           </div>
         </div>
@@ -663,6 +770,116 @@ function openLanguage() {
   display: none;
 }
 
+.percent-slide {
+  display: flex;
+  justify-content: space-between;
+}
+
+.percent-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+
+.one-circle {
+  display: flex;
+  flex-direction: column;
+  width: 166px;
+  height: 167px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.one-circle circle {
+  fill: none;
+  stroke-width: 20px;
+  stroke: green;
+  stroke-dasharray: 471;
+  stroke-dashoffset: 105;
+  stroke-linecap: square;
+}
+
+.one-circle svg {
+  position: absolute;
+  transform: scale(1) rotate(240deg);
+  width: 160px;
+  height: 160px;
+}
+
+.percent-title {
+  color: var(--paragraph, #F8F8F8);
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  max-width: 77px;
+}
+
+.percent-info-title {
+  color: var(--paragraph, #F8F8F8);
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  max-width: 662px;
+  text-align: end;
+}
+
+.percent-nr {
+  color: var(--paragraph, #F8F8F8);
+  font-family: "Work Sans";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.midlle-percent,
+.bottom-percent,
+.top-percent {
+  display: flex;
+  gap: 60px;
+}
+
+
+.percent-info {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+  gap: 88px;
+}
+
+.bold-green {
+  color: var(--paragraph, #009D06);
+  font-family: "Work Sans";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.percent-link {
+  color: var(--paragraph, #F8F8F8);
+  text-align: right;
+  font-family: "Work Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid var(--accents, #009D06);
+  cursor: pointer;
+}
+
+
 @media screen and (max-width: 1375px) {
 
   .nav-right {
@@ -779,6 +996,49 @@ function openLanguage() {
     display: flex;
     position: absolute;
   }
+
+  .percent-slide {
+    padding: 0 35px 0;
+  }
+
+  .percent-info-title {
+    font-size: 25px;
+    max-width: 368px;
+  }
+
+  .midlle-percent,
+  .bottom-percent,
+  .top-percent {
+    display: flex;
+    gap: 50px;
+  }
+
+  .bold-green {
+    font-size: 25px;
+  }
+
+  .one-circle svg {
+    transform: scale(0.8) rotate(240deg);
+  }
+
+  .percent-title {
+    color: #FFF;
+    text-align: center;
+    font-family: "Work Sans";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 145%;
+  }
+
+  .percent-nr {
+    color: #FFF;
+    font-family: "Work Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 145%;
+  }
 }
 
 @media screen and (max-width: 770px) {
@@ -796,9 +1056,9 @@ function openLanguage() {
     display: flex;
     flex-direction: column;
     align-items: center;
-    right: 70px;
-    top: 74px;
-    width: fit-content;
+    right: 100px;
+    top: 73px;
+    width: 20px;
     z-index: 2;
   }
 
@@ -918,10 +1178,12 @@ function openLanguage() {
 
   .line {
     background: #009D06;
+    width: 40px;
   }
 
   .opacity {
     opacity: 0;
+    pointer-events: none
   }
 
   .back-image {
@@ -987,4 +1249,66 @@ function openLanguage() {
   .first-slide-btn {
     font-size: 12px;
   }
-}</style>
+
+  .percent-slide {
+    flex-direction: column-reverse;
+    gap: 70px;
+  }
+
+  .percent-info {
+    gap: 20px;
+  }
+
+  .percent-info-title {
+    color: #FFF;
+    text-align: right;
+    font-family: "Work Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 145%;
+  }
+
+  .bold-green {
+    color: #009D06;
+    font-family: "Work Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 145%;
+  }
+
+  .percent-title {
+    color: #FFF;
+    text-align: center;
+    font-family: "Work Sans";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 145%;
+  }
+
+  .percent-nr {
+    color: #FFF;
+    font-family: "Work Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 145%;
+  }
+
+  .one-circle svg {
+    transform: scale(0.65) rotate(240deg);
+  }
+
+  .percent-stats {
+    align-items: center;
+    gap: 50px;
+  }
+
+  .one-circle {
+    width: 100px;
+    height: 100px;
+  }
+}
+</style>
