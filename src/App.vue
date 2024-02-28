@@ -1,5 +1,15 @@
 <script setup>
 import { ref } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Grid, Pagination } from 'swiper/modules';
+import 'swiper/css';
+
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
+
+import './style.css';
+
+
 const language = ref(true)
 const menu = ref(false)
 const showLanguage = ref(true)
@@ -24,6 +34,13 @@ function openMenu() {
 function openLanguage() {
   showLanguage.value = !showLanguage.value
 }
+const components = {
+  Swiper,
+  SwiperSlide,
+};
+
+const modules = [Grid, Pagination];
+
 </script>
 <template>
   <div class="app">
@@ -33,27 +50,68 @@ function openLanguage() {
         <div class="one-slide">
           <div class="nav wrapper">
             <div class="nav-left">
-              <div class="language-select-mobile">
-                <div class="selected-language" v-if="language" @click="openLanguage()">Ro</div>
-                <div class="selected-language" v-if="!language" @click="openLanguage()">Ru</div>
-                <span class="language-svg">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 7 3" fill="none">
-                    <path opacity="0.8"
-                      d="M0.647756 0.126561C0.600937 0.166337 0.563776 0.213658 0.538416 0.265797C0.513057 0.317936 0.5 0.373861 0.5 0.430344C0.5 0.486827 0.513057 0.542751 0.538416 0.59489C0.563776 0.647029 0.600937 0.694351 0.647756 0.734126L3.14534 2.87344C3.19178 2.91354 3.24703 2.94537 3.3079 2.96709C3.36877 2.98882 3.43406 3 3.5 3C3.56594 3 3.63123 2.98882 3.6921 2.96709C3.75297 2.94537 3.80822 2.91354 3.85466 2.87344L6.35224 0.734126C6.39906 0.694351 6.43622 0.647029 6.46158 0.59489C6.48694 0.542751 6.5 0.486827 6.5 0.430344C6.5 0.373861 6.48694 0.317936 6.46158 0.265797C6.43622 0.213658 6.39906 0.166337 6.35224 0.126561C6.30581 0.0864582 6.25056 0.0546279 6.18969 0.0329058C6.12882 0.0111837 6.06353 0 5.99759 0C5.93164 0 5.86635 0.0111837 5.80548 0.0329058C5.74461 0.0546279 5.68937 0.0864582 5.64293 0.126561L3.5 1.96637L1.35707 0.126561C1.31063 0.0864582 1.25539 0.0546279 1.19452 0.0329058C1.13365 0.0111837 1.06836 0 1.00241 0C0.936471 0 0.871182 0.0111837 0.810311 0.0329058C0.74944 0.0546279 0.694193 0.0864582 0.647756 0.126561Z"
+              <div class="nav-contact">
+                <div class="contact-svg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="30" viewBox="0 0 28 30" fill="none">
+                    <path
+                      d="M28 20.265L19.8015 19.2729L15.8812 23.3714C11.4649 21.0233 7.87524 17.2705 5.62917 12.6534L9.56507 8.53862L8.6161 0H0.0442402C-0.85806 16.5568 12.1631 30.1698 28 29.2265V20.265Z"
+                      fill="#009D06" />
+                  </svg>
+                </div>
+                <div class="contact-phone">+373 (79) 33 99 33</div>
+              </div>
+            </div>
+            <div class="main-nav">
+              <div class="products">
+                <span class="nav-btn" v-if="language">Catalog</span>
+                <span class="nav-btn" v-if="!language">Каталог</span>
+              </div>
+              <div class="about">
+                <span class="nav-btn" v-if="language">Despre Noi</span>
+                <span class="nav-btn" v-if="!language">О нас</span>
+              </div>
+              <div class="shorthand">
+                <span class="nav-btn" v-if="language">Prescurtari</span>
+                <span class="nav-btn" v-if="!language">Ярлыки</span>
+                <div class="shorthand-svg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="10" viewBox="0 0 25 10" fill="none">
+                    <path
+                      d="M1.09103 1.01616C0.90375 1.13548 0.755105 1.27745 0.653666 1.43387C0.552227 1.59028 0.5 1.75806 0.5 1.92751C0.5 2.09695 0.552227 2.26473 0.653666 2.42114C0.755105 2.57756 0.90375 2.71953 1.09103 2.83885L11.0814 9.25679C11.2671 9.3771 11.4881 9.47259 11.7316 9.53776C11.9751 9.60292 12.2362 9.63647 12.5 9.63647C12.7638 9.63647 13.0249 9.60292 13.2684 9.53776C13.5119 9.47259 13.7329 9.3771 13.9186 9.25679L23.909 2.83885C24.0963 2.71953 24.2449 2.57756 24.3463 2.42114C24.4478 2.26473 24.5 2.09695 24.5 1.92751C24.5 1.75806 24.4478 1.59028 24.3463 1.43387C24.2449 1.27745 24.0963 1.13548 23.909 1.01616C23.7232 0.895849 23.5022 0.800358 23.2588 0.735192C23.0153 0.670026 22.7541 0.636475 22.4903 0.636475C22.2266 0.636475 21.9654 0.670026 21.7219 0.735192C21.4785 0.800358 21.2575 0.895849 21.0717 1.01616L12.5 6.53559L3.92828 1.01616C3.74254 0.895849 3.52155 0.800358 3.27807 0.735192C3.03458 0.670026 2.77342 0.636475 2.50965 0.636475C2.24589 0.636475 1.98473 0.670026 1.74124 0.735192C1.49776 0.800358 1.27677 0.895849 1.09103 1.01616Z"
                       fill="#F8F8F8" />
                   </svg>
-                </span>
-              </div>
-              <div class="language" :class="{ 'opacity': showLanguage }">
-                <div class="ro-language" :class="{ 'selected-language': language }" @click="languageRo"> Ro </div>
-                <div class=" ru-language" :class="{ 'selected-language': !language }" @click="languageRu">Ru</div>
+                </div>
+                <div class="shorthand-menu">
+                  <span class="shorthand-one" v-if="language">De ce Take IT?</span>
+                  <span class="shorthand-one" v-if="!language">Почему Take IT?</span>
+                  <span class="shorthand-one">Smart Facts</span>
+                  <span class="shorthand-one" v-if="language">Servicii</span>
+                  <span class="shorthand-one" v-if="!language">Услуги</span>
+                  <span class="shorthand-one" v-if="language">Clienți</span>
+                  <span class="shorthand-one" v-if="!language">Клиенты</span>
+                  <span class="shorthand-one" v-if="language">Parteneri</span>
+                  <span class="shorthand-one" v-if="!language">Партнеры</span>
+                  <span class="shorthand-one" v-if="language">Ia Legătura</span>
+                  <span class="shorthand-one" v-if="!language">Связаться</span>
+                </div>
               </div>
             </div>
             <div class="nav-right">
-              <div class="nav-contact">
-                <div class="contact-title" v-if="language">Contactează-ne</div>
-                <div class="contact-title" v-if="!language">Связаться с нами</div>
-                <div class="contact-phone">+373 (79) 33 99 33</div>
+              <div class="langauge-settings">
+                <div class="language-select-mobile">
+                  <div class="selected-language" v-if="language" @click="openLanguage()">Ro</div>
+                  <div class="selected-language" v-if="!language" @click="openLanguage()">Ru</div>
+                  <span class="language-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 7 3" fill="none">
+                      <path opacity="0.8"
+                        d="M0.647756 0.126561C0.600937 0.166337 0.563776 0.213658 0.538416 0.265797C0.513057 0.317936 0.5 0.373861 0.5 0.430344C0.5 0.486827 0.513057 0.542751 0.538416 0.59489C0.563776 0.647029 0.600937 0.694351 0.647756 0.734126L3.14534 2.87344C3.19178 2.91354 3.24703 2.94537 3.3079 2.96709C3.36877 2.98882 3.43406 3 3.5 3C3.56594 3 3.63123 2.98882 3.6921 2.96709C3.75297 2.94537 3.80822 2.91354 3.85466 2.87344L6.35224 0.734126C6.39906 0.694351 6.43622 0.647029 6.46158 0.59489C6.48694 0.542751 6.5 0.486827 6.5 0.430344C6.5 0.373861 6.48694 0.317936 6.46158 0.265797C6.43622 0.213658 6.39906 0.166337 6.35224 0.126561C6.30581 0.0864582 6.25056 0.0546279 6.18969 0.0329058C6.12882 0.0111837 6.06353 0 5.99759 0C5.93164 0 5.86635 0.0111837 5.80548 0.0329058C5.74461 0.0546279 5.68937 0.0864582 5.64293 0.126561L3.5 1.96637L1.35707 0.126561C1.31063 0.0864582 1.25539 0.0546279 1.19452 0.0329058C1.13365 0.0111837 1.06836 0 1.00241 0C0.936471 0 0.871182 0.0111837 0.810311 0.0329058C0.74944 0.0546279 0.694193 0.0864582 0.647756 0.126561Z"
+                        fill="#F8F8F8" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="language" :class="{ 'opacity': showLanguage }">
+                  <div class="ro-language" :class="{ 'selected-language': language }" @click="languageRo"> Ro </div>
+                  <div class=" ru-language" :class="{ 'selected-language': !language }" @click="languageRu">Ru</div>
+                </div>
               </div>
               <div class="nav-hamburger" @click="openMenu()">
                 <span class="line"></span>
@@ -63,7 +121,7 @@ function openLanguage() {
             </div>
           </div>
           <div class="first-slide wrapper">
-            <div class="back-image"><img src="./assets/Background.png" alt=""></div>
+            <div class="first-slide-svg"><img src="../src/assets/background.png" alt=""></div>
             <div class="first-slide-words">
               <div class="first-slide-title" v-if="language">E TIMPUL SĂ-ȚI MODERNIZEZI AFACEREA!</div>
               <div class="first-slide-title" v-if="!language">ПРИШЛО ВРЕМЯ МОДЕРНИЗИРОВАТЬ ВАШ БИЗНЕС!</div>
@@ -72,8 +130,6 @@ function openLanguage() {
               <div class="first-slide-text" v-if="!language">Автоматизация операционных процессов, комплексные решения для
                 магазинов, торговых центров, ресторанов, банков, аптек, автоцентров и других коммерческих объектов.</div>
             </div>
-            <div class="first-slide-btn" v-if="language">Catalog</div>
-            <div class="first-slide-btn" v-if="!language">Каталог</div>
           </div>
           <div :class="{ 'closed-menu': !menu, 'opened-menu': menu }">
             <div class="menu-wrapper">
@@ -169,27 +225,6 @@ function openLanguage() {
           </div>
         </div>
         <div class="one-slide wrapper">
-          <div class="back-shape">
-            <svg xmlns="http://www.w3.org/2000/svg" width="330" height="600" viewBox="0 0 330 600" fill="none">
-              <g filter="url(#filter0_f_139_3249)">
-                <path
-                  d="M21.8446 376.417C-59.2003 426.654 -219.955 388.789 -248.231 343.173C-276.506 297.558 -150.276 200.345 -69.2307 150.108C11.8142 99.871 294.389 80.6603 322.665 126.276C350.941 171.892 102.889 326.18 21.8446 376.417Z"
-                  fill="#009D06" fill-opacity="0.15" />
-              </g>
-              <defs>
-                <filter id="filter0_f_139_3249" x="-352.28" y="0.480347" width="777.179" height="499.785"
-                  filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_139_3249" />
-                </filter>
-              </defs>
-            </svg>
-          </div>
-          <div class="slide-title" v-if="language">Suntem mândri să oferim un parteneriat bazat pe excelență și încredere,
-            construit pe fundamente solide și dedicat atingerii obiectivelor dumneavoastră.</div>
-          <div class="slide-title" v-if="!language">Мы с гордостью предлагаем партнерство, основанное на совершенстве и
-            доверии, построенное на прочной основе и ориентированное на достижение ваших целей.</div>
           <div class="slide-cards wrapper">
             <div class="one-card">
               <div class="card-logo">
@@ -257,6 +292,10 @@ function openLanguage() {
               </div>
             </div>
           </div>
+          <div class="slide-title" v-if="language">Suntem mândri să oferim un parteneriat bazat pe excelență și încredere,
+            construit pe fundamente solide și dedicat atingerii obiectivelor dumneavoastră.</div>
+          <div class="slide-title" v-if="!language">Мы с гордостью предлагаем партнерство, основанное на совершенстве и
+            доверии, построенное на прочной основе и ориентированное на достижение ваших целей.</div>
         </div>
         <div class="one-slide wrapper">
           <div class="percent-slide">
@@ -365,6 +404,159 @@ function openLanguage() {
             </div>
           </div>
         </div>
+        <div class="one-slide ">
+          <div class="service-title" v-if="language">
+            Serviciile Noastre
+          </div>
+          <div class="service-title" v-if="!language">
+            Наши услуги
+          </div>
+          <div class="service-slider">
+            <Swiper :slidesPerView="3" :grid="{ rows: 1, }" :spaceBetween="30" :pagination="{ clickable: true, }"
+              :modules="modules" class="service-wrapper">
+                <swiper-slide class="service-one-slide">
+                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                  </div>
+                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                    implementarea rapidă
+                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                    colaborării.</div>
+                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                    акцентом на
+                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                    всего
+                    Сотрудничество.</div>
+                </swiper-slide>
+                <swiper-slide class="service-one-slide">
+                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                  </div>
+                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                    implementarea rapidă
+                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                    colaborării.</div>
+                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                    акцентом на
+                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                    всего
+                    Сотрудничество.</div>
+                </swiper-slide>
+                <swiper-slide class="service-one-slide">
+                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                  </div>
+                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                    implementarea rapidă
+                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                    colaborării.</div>
+                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                    акцентом на
+                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                    всего
+                    Сотрудничество.</div>
+                </swiper-slide>
+                <swiper-slide class="service-one-slide">
+                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                  </div>
+                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                    implementarea rapidă
+                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                    colaborării.</div>
+                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                    акцентом на
+                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                    всего
+                    Сотрудничество.</div>
+                </swiper-slide>
+                <swiper-slide class="service-one-slide">
+                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                  </div>
+                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                    implementarea rapidă
+                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                    colaborării.</div>
+                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                    акцентом на
+                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                    всего
+                    Сотрудничество.</div>
+                </swiper-slide>
+                <swiper-slide class="service-one-slide">
+                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                  </div>
+                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                    implementarea rapidă
+                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                    colaborării.</div>
+                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                    акцентом на
+                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                    всего
+                    Сотрудничество.</div>
+                </swiper-slide>
+                <swiper-slide class="service-one-slide">
+                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                  </div>
+                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                    implementarea rapidă
+                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                    colaborării.</div>
+                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                    акцентом на
+                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                    всего
+                    Сотрудничество.</div>
+                </swiper-slide>
+            </Swiper>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -397,7 +589,19 @@ function openLanguage() {
   justify-content: space-between;
   align-items: center;
   padding: 53px 0px 0px 0px;
+  position: relative;
   width: 100%;
+}
+
+.nav::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 20px;
+  background: rgba(0, 157, 5, 0.418);
+  filter: blur(50px);
+  z-index: -1;
 }
 
 .language {
@@ -456,10 +660,6 @@ function openLanguage() {
   position: relative;
 }
 
-.nav-right {
-  display: flex;
-  gap: 100px;
-}
 
 .nav-contact {
   display: flex;
@@ -500,7 +700,7 @@ function openLanguage() {
 }
 
 .nav-hamburger {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 15px;
   z-index: 4;
@@ -515,76 +715,44 @@ function openLanguage() {
 
 .first-slide {
   display: flex;
-  flex-direction: column;
-  gap: 130px;
+  gap: 80px;
   position: relative;
   align-items: center;
   padding-top: 113px;
-  min-height: 800px;
+  margin-bottom: 50px;
 }
 
-.back-image {
-  position: absolute;
-  top: 50px;
-  width: 710px;
-  height: 633px;
-  z-index: 1;
-}
 
-.back-image img {
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-}
 
 
 .first-slide-words {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
   z-index: 2;
 }
 
 .first-slide-title {
   color: var(--paragraph, #F8F8F8);
-  text-align: center;
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: var(--paragraph, #F8F8F8);
   font-family: "Work Sans";
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
-.first-slide-text {
-  color: var(--paragraph, #F8F8F8);
-  text-align: center;
-  font-family: "Work Sans";
-  font-size: 32px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
-.first-slide-btn {
-  display: flex;
-  padding: 19px 72px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  background: var(--accents, #009D06);
+.first-slide-text {
   color: var(--paragraph, #F8F8F8);
-  text-align: center;
   font-family: "Work Sans";
-  z-index: 2;
-  font-size: 20px;
+  font-size: 24px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 300;
   line-height: normal;
 }
+
 
 .closed-menu {
   opacity: 0;
@@ -672,6 +840,10 @@ function openLanguage() {
   gap: 30px;
 }
 
+.nav-right {
+  display: flex;
+}
+
 .menu-info-title {
   color: #FFF;
   font-family: "Work Sans";
@@ -718,7 +890,7 @@ function openLanguage() {
   line-height: normal;
   max-width: 1081px;
   margin: 0 auto;
-  margin-top: 54px;
+  margin-top: 40px;
   margin-bottom: 70px;
 }
 
@@ -766,9 +938,7 @@ function openLanguage() {
   line-height: normal;
 }
 
-.back-shape {
-  display: none;
-}
+
 
 .percent-slide {
   display: flex;
@@ -879,6 +1049,119 @@ function openLanguage() {
   cursor: pointer;
 }
 
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
+
+.nav-btn {
+  color: var(--paragraph, #F8F8F8);
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.shorthand {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  position: relative;
+}
+
+.shorthand-svg {
+  transform: rotate(0);
+  transition: all 1s ease-in;
+}
+
+.shorthand-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 35px 66px;
+  border-radius: 20px;
+  background: var(--darker-blocks, #0017308a);
+  position: absolute;
+  top: 110%;
+  left: -80%;
+  z-index: 3;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  appearance: none;
+}
+
+.shorthand-one {
+  color: #FFF;
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  width: 200px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.first-slide-svg {
+  display: flex;
+  width: 800px;
+  height: 300px;
+}
+
+.first-slide-svg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.service-title {
+  color: var(--paragraph, #F8F8F8);
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.service-one-slide {
+  width: 710px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #093565;
+  mix-blend-mode: luminosity;
+  padding: 40px 75px;
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+}
+
+.service-one-slide-title {
+  color: var(--paragraph, #F8F8F8);
+  font-family: "Work Sans";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.service-one-slide-content {
+  color: var(--paragraph, #F8F8F8);
+  font-family: "Work Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 
 @media screen and (max-width: 1375px) {
 
@@ -891,13 +1174,16 @@ function openLanguage() {
     padding-right: 35px;
   }
 
+  .main-nav {
+    padding: 0 8px 0;
+  }
+
   .nav-left {
     padding-left: 35px;
   }
 
-  .back-image {
-    width: 475px;
-    height: 410px;
+  .nav-btn {
+    font-size: 16px;
   }
 
   .menu-wrapper {
@@ -980,8 +1266,9 @@ function openLanguage() {
   }
 
   .slide-cards {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 500px);
     position: relative;
+    justify-content: center;
   }
 
   .card-text {
@@ -992,11 +1279,6 @@ function openLanguage() {
     padding: 0 35px 0;
   }
 
-  .back-shape {
-    display: flex;
-    position: absolute;
-  }
-
   .percent-slide {
     padding: 0 35px 0;
   }
@@ -1004,6 +1286,10 @@ function openLanguage() {
   .percent-info-title {
     font-size: 25px;
     max-width: 368px;
+  }
+
+  .one-card {
+    max-width: 500px;
   }
 
   .midlle-percent,
@@ -1046,28 +1332,6 @@ function openLanguage() {
     padding-top: 72px;
   }
 
-  .nav-contact {
-    position: absolute;
-    left: 50px;
-  }
-
-  .nav-left {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    right: 100px;
-    top: 73px;
-    width: 20px;
-    z-index: 2;
-  }
-
-  .nav-right {
-    justify-content: end;
-    width: 100%;
-    padding-right: 35px;
-    align-items: center;
-  }
 
   .language {
     border-radius: 20px;
@@ -1091,6 +1355,14 @@ function openLanguage() {
     border: none;
   }
 
+  .nav-right {
+    gap: 20px;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
   .ro-language {
     color: var(--paragraph, #F8F8F8);
     text-align: center;
@@ -1109,6 +1381,14 @@ function openLanguage() {
     height: 23px;
     background: #F8F8F8;
     right: 0;
+  }
+
+  .slide-cards {
+    grid-template-columns: repeat(1, 300px);
+  }
+
+  .one-card {
+    gap: 30px;
   }
 
   .menu-wrapper {
@@ -1186,19 +1466,30 @@ function openLanguage() {
     pointer-events: none
   }
 
-  .back-image {
-    width: 352px;
-    height: 345px;
-    flex-shrink: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+
 
   .first-slide {
-    align-items: start;
     margin: 0 auto;
     padding: 80px 35px 0;
     gap: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .first-slide-svg {
+    width: 200px;
+    height: 200px;
+  }
+
+  .first-slide-words {
+    align-items: center;
+  }
+
+  .langauge-settings {
+    position: absolute;
+    top: 77px;
+    right: 15%;
   }
 
   .contact-phone {
@@ -1212,6 +1503,7 @@ function openLanguage() {
 
   .nav-hamburger {
     gap: 9px;
+    display: flex;
   }
 
   .contact-title {
@@ -1233,7 +1525,7 @@ function openLanguage() {
     font-style: normal;
     font-weight: 600;
     line-height: 145%;
-    text-align: start;
+    text-align: center;
   }
 
   .first-slide-text {
@@ -1243,12 +1535,9 @@ function openLanguage() {
     font-style: normal;
     font-weight: 500;
     line-height: 145%;
-    text-align: start;
+    text-align: center;
   }
 
-  .first-slide-btn {
-    font-size: 12px;
-  }
 
   .percent-slide {
     flex-direction: column-reverse;
@@ -1310,5 +1599,4 @@ function openLanguage() {
     width: 100px;
     height: 100px;
   }
-}
-</style>
+}</style>
