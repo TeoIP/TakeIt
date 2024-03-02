@@ -1,18 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Grid, Pagination } from 'swiper/modules';
+import axios from 'axios';
 import 'swiper/css';
-
-import 'swiper/css/grid';
 import 'swiper/css/pagination';
-
 import './style.css';
+
 
 
 const language = ref(true)
 const menu = ref(false)
 const showLanguage = ref(true)
+const fullName = ref('');
+const email = ref('');
+const message = ref('');
+const token = ref('7129232644:AAHhevbgd0K1tn_8kSjmL9LxOKt4Gw9txxU');
+const chatId = ref('776161361');
 
 function languageRo() {
   if (language.value == false) {
@@ -34,13 +37,20 @@ function openMenu() {
 function openLanguage() {
   showLanguage.value = !showLanguage.value
 }
-const components = {
-  Swiper,
-  SwiperSlide,
-};
 
-const modules = [Grid, Pagination];
+function submitMessage() {
+  const fullMessage = `FullName: ${fullName.value}\n Email: ${email.value}\nMessage: ${message.value}`;
 
+  axios.post(`https://api.telegram.org/bot${token.value}/sendMessage?chat_id=${chatId.value}&text=${fullMessage}`)
+    .then(response => {
+      fullName.value = '';
+      message.value = '';
+      email.value = '';
+    })
+    .catch(error => {
+      console.error('Error sending message to Telegram:', error);
+    });
+}
 </script>
 <template>
   <div class="app">
@@ -395,16 +405,16 @@ const modules = [Grid, Pagination];
                 INOVĂM CU <span class="bold-green">EFICIENȚĂ</span>, TRANSFORMĂM PROVOCĂRI ÎN <span
                   class="bold-green">OPORTUNITĂȚI</span>, ADUCÂND SOLUȚII DE IMPACT.
               </div>
-              <div class="percent-title" v-if="!language">
-                МЫ <span class="bold-green">ЭФФЕКТИВНО</span>ВНЕДРЯЕМ ИННОВАЦИИ, ПРЕВРАЩАЕМ ПРОБЛЕМЫ В<span
-                  class="bold-green">ВОЗМОЖНОСТИ</span>, ПРЕДЛАГАЯ ЭФФЕКТИВНЫЕ РЕШЕНИЯ.
+              <div class="percent-info-title" v-if="!language">МЫ <span class="bold-green">ЭФФЕКТИВНО</span> ВНЕДРЯЕМ
+                ИННОВАЦИИ, ПРЕВРАЩАЕМ ПРОБЛЕМЫ В <span class="bold-green">ВОЗМОЖНОСТИ</span>, ПРЕДЛАГАЯ ЭФФЕКТИВНЫЕ
+                РЕШЕНИЯ.
               </div>
               <div class="percent-link" v-if="language">Află mai multe despre noi</div>
               <div class="percent-link" v-if="!language">Узнайте больше о нас</div>
             </div>
           </div>
         </div>
-        <div class="one-slide ">
+        <div class="one-slide">
           <div class="service-title" v-if="language">
             Serviciile Noastre
           </div>
@@ -412,149 +422,276 @@ const modules = [Grid, Pagination];
             Наши услуги
           </div>
           <div class="service-slider">
-            <Swiper :slidesPerView="3" :grid="{ rows: 1, }" :spaceBetween="30" :pagination="{ clickable: true, }"
-              :modules="modules" class="service-wrapper">
-                <swiper-slide class="service-one-slide">
-                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
-                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
-                  </div>
-                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
-                    implementarea rapidă
-                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
-                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
-                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
-                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
-                    colaborării.</div>
-                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
-                    акцентом на
-                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
-                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
-                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
-                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
-                    всего
-                    Сотрудничество.</div>
-                </swiper-slide>
-                <swiper-slide class="service-one-slide">
-                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
-                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
-                  </div>
-                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
-                    implementarea rapidă
-                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
-                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
-                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
-                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
-                    colaborării.</div>
-                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
-                    акцентом на
-                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
-                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
-                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
-                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
-                    всего
-                    Сотрудничество.</div>
-                </swiper-slide>
-                <swiper-slide class="service-one-slide">
-                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
-                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
-                  </div>
-                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
-                    implementarea rapidă
-                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
-                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
-                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
-                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
-                    colaborării.</div>
-                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
-                    акцентом на
-                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
-                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
-                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
-                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
-                    всего
-                    Сотрудничество.</div>
-                </swiper-slide>
-                <swiper-slide class="service-one-slide">
-                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
-                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
-                  </div>
-                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
-                    implementarea rapidă
-                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
-                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
-                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
-                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
-                    colaborării.</div>
-                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
-                    акцентом на
-                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
-                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
-                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
-                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
-                    всего
-                    Сотрудничество.</div>
-                </swiper-slide>
-                <swiper-slide class="service-one-slide">
-                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
-                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
-                  </div>
-                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
-                    implementarea rapidă
-                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
-                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
-                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
-                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
-                    colaborării.</div>
-                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
-                    акцентом на
-                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
-                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
-                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
-                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
-                    всего
-                    Сотрудничество.</div>
-                </swiper-slide>
-                <swiper-slide class="service-one-slide">
-                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
-                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
-                  </div>
-                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
-                    implementarea rapidă
-                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
-                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
-                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
-                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
-                    colaborării.</div>
-                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
-                    акцентом на
-                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
-                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
-                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
-                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
-                    всего
-                    Сотрудничество.</div>
-                </swiper-slide>
-                <swiper-slide class="service-one-slide">
-                  <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
-                  <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
-                  </div>
-                  <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
-                    implementarea rapidă
-                    într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
-                    asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
-                    inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
-                    clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
-                    colaborării.</div>
-                  <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
-                    акцентом на
-                    в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
-                    Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
-                    инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
-                    клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
-                    всего
-                    Сотрудничество.</div>
-                </swiper-slide>
-            </Swiper>
+            <div class="top-slides">
+              <div class="service-one-slide">
+                <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                </div>
+                <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                  implementarea rapidă
+                  într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                  asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                  inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                  clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                  colaborării.</div>
+                <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                  акцентом на
+                  в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                  Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                  инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                  клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                  всего
+                  Сотрудничество.</div>
+              </div>
+              <div class="service-one-slide">
+                <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                </div>
+                <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                  implementarea rapidă
+                  într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                  asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                  inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                  clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                  colaborării.</div>
+                <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                  акцентом на
+                  в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                  Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                  инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                  клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                  всего
+                  Сотрудничество.</div>
+              </div>
+              <div class="service-one-slide">
+                <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                </div>
+                <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                  implementarea rapidă
+                  într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                  asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                  inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                  clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                  colaborării.</div>
+                <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                  акцентом на
+                  в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                  Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                  инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                  клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                  всего
+                  Сотрудничество.</div>
+              </div>
+              <div class="service-one-slide">
+                <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                </div>
+                <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                  implementarea rapidă
+                  într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                  asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                  inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                  clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                  colaborării.</div>
+                <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                  акцентом на
+                  в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                  Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                  инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                  клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                  всего
+                  Сотрудничество.</div>
+              </div>
+            </div>
+            <div class="bottom-slides">
+              <div class="service-one-slide">
+                <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                </div>
+                <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                  implementarea rapidă
+                  într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                  asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                  inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                  clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                  colaborării.</div>
+                <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                  акцентом на
+                  в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                  Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                  инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                  клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                  всего
+                  Сотрудничество.</div>
+              </div>
+              <div class="service-one-slide">
+                <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                </div>
+                <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                  implementarea rapidă
+                  într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                  asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                  inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                  clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                  colaborării.</div>
+                <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                  акцентом на
+                  в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                  Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                  инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                  клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                  всего
+                  Сотрудничество.</div>
+              </div>
+              <div class="service-one-slide">
+                <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                </div>
+                <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                  implementarea rapidă
+                  într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                  asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                  inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                  clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                  colaborării.</div>
+                <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                  акцентом на
+                  в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                  Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                  инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                  клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                  всего
+                  Сотрудничество.</div>
+              </div>
+              <div class="service-one-slide">
+                <div class="service-one-slide-title" v-if="language">Dezvoltăm soluții și aplicații complexe</div>
+                <div class="service-one-slide-title" v-if="!language">Мы разрабатываем сложные решения и приложения
+                </div>
+                <div class="service-one-slide-content" v-if="language">Take IT oferă soluții integrate, cu accent pe
+                  implementarea rapidă
+                  într-un mediu competitiv. Prioritățile includ fidelizarea clienților, optimizarea proceselor și
+                  asigurarea securității prin soluții complete. Diferențierea constă în crearea unor experiențe
+                  inovatoare. Suportul tehnic și serviciile cu acoperire națională consolidează relațiile durabile cu
+                  clienții. Take IT se evidențiază prin abordare comprehensivă și parteneriate strânse pe parcursul
+                  colaborării.</div>
+                <div class="service-one-slide-content" v-if="!language">Take IT предлагает интегрированные решения с
+                  акцентом на
+                  в конкурентной среде.Приоритеты включают лояльность клиентов, оптимизация процессов и
+                  Обеспечение безопасности с помощью полных решений.Дифференциация состоит из создания опыта
+                  инновационный.Техническая поддержка и услуги с национальным охватом укрепляют устойчивые отношения с
+                  клиенты.Take IT, подчеркивается комплексным подходом и партнерскими отношениями, собранными в течение
+                  всего
+                  Сотрудничество.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="one-slide">
+          <div class="clients" v-if="language">Clienți ce au <span class="clients-green">încredere</span> în echipa
+            noastră</div>
+          <div class="clients" v-if="!language">Клиенты, которые <span class="clients-green">доверяют</span> нашей команде
+          </div>
+          <div class="clients-slide">
+            <div class="clients-logos-wrapper">
+              <div class="clients-logos">
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/carmez.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/colin's.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/darwin.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/linella.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/maximum.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/merci.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/milavitsa.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/nr 1.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/ovico.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/ovs.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/salamander.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/sisley.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/sportlandia.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/terranova.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/trend.png" alt=""></span>
+              </div>
+              <div class="clients-logos">
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/carmez.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/colin's.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/darwin.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/linella.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/maximum.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/merci.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/milavitsa.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/nr 1.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/ovico.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/ovs.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/salamander.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/sisley.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/sportlandia.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/terranova.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/trend.png" alt=""></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="one-slide wrapper">
+          <div class="parteners-card">
+            <div class="parteners-card-words">
+              <div class="parteners-card-title" v-if="language">
+                PARTENERII NOȘTRI
+              </div>
+              <div class="parteners-card-title" v-if="!language">
+                Наши партнеры
+              </div>
+              <div class="parteners-subtitle" v-if="language">Take IT - <span class="parteners-green">importator
+                  oficial</span> pe teritoriul Republicii Moldova, partener de încredere a producătorilor de echipamente
+                cu mărci de <span class="parteners-green">renumite mondial</span>.</div>
+              <div class="parteners-subtitle" v-if="!language">Take IT - <span class="parteners-green">импортер
+                  официальный</span> на территории Республики Молдовы, доверенного партнера производителей оборудования
+                с брендами <span class="parteners-green">известный во всем мире</span>.</div>
+            </div>
+            <div class="parteners-card-slider">
+              <div class="parteners-card-slider-wrapper">
+                <Swiper :slidesPerView="1" :spaceBetween="30" :pagination="true" :modules="modules"
+                  class="parteners-card-one-slide">
+                  <swiper-slide class="parteners-one-slide-img">
+                    <div><img src="../src/assets/Partenerii/shopguard.png" alt=""></div>
+                    <div><img src="../src/assets/Partenerii/sato.png" alt=""></div>
+                    <div><img src="../src/assets/Partenerii/zebra.png" alt=""></div>
+                    <div><img src="../src/assets/Partenerii/bizebra.png" alt=""></div>
+                  </swiper-slide>
+                  <swiper-slide class="parteners-one-slide-img">
+                    <div><img src="../src/assets/Partenerii/datalogic.png" alt=""></div>
+                    <div><img src="../src/assets/Partenerii/ccl.png" alt=""></div>
+                    <div><img src="../src/assets/Partenerii/tsc.png" alt=""></div>
+                    <div><img src="../src/assets/Partenerii/sensormatic.png" alt=""></div>
+                  </swiper-slide>
+                </Swiper>
+                <div class="swipe-hand">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" viewBox="0 0 50 40" fill="none">
+                    <path
+                      d="M24.5139 39.1934C23.5806 39.1934 22.7028 39.0639 21.8806 38.805C21.0583 38.5475 20.3065 38.1646 19.625 37.6565L5.93889 27.451L7.275 26.4811C7.69537 26.1931 8.17222 26.0076 8.70555 25.9245C9.23704 25.8401 9.775 25.8484 10.3194 25.9495L18.0556 27.3762V10.1178C18.0556 9.82292 18.1889 9.57647 18.4556 9.37848C18.7222 9.17911 19.0518 9.07942 19.4444 9.07942C19.837 9.07942 20.1667 9.17911 20.4333 9.37848C20.6981 9.57786 20.8306 9.82431 20.8306 10.1178V30.1633L10.7278 28.1218L21.6056 36.2131C21.9796 36.4928 22.4213 36.7136 22.9306 36.8756C23.4398 37.0362 23.9667 37.1165 24.5111 37.1165H34.7222C36.6778 37.1165 38.3241 36.6167 39.6611 35.6171C40.9981 34.6174 41.6667 33.3866 41.6667 31.9245V23.6172C41.6667 23.3223 41.8 23.0758 42.0667 22.8778C42.3333 22.6798 42.663 22.5802 43.0556 22.5788C43.4481 22.5788 43.7778 22.6785 44.0444 22.8778C44.3093 23.0772 44.4417 23.3237 44.4417 23.6172V31.9245C44.4417 33.9431 43.4963 35.6593 41.6056 37.0729C39.7148 38.4865 37.4241 39.1934 34.7333 39.1934H24.5139ZM25.9083 25.694V17.3867C25.9083 17.0918 26.0417 16.8447 26.3083 16.6453C26.575 16.4473 26.9056 16.3483 27.3 16.3483C27.6926 16.3483 28.0222 16.448 28.2889 16.6474C28.5537 16.8467 28.6861 17.0932 28.6861 17.3867V25.694H25.9083ZM33.8139 25.694V19.4635C33.8139 19.1686 33.9472 18.9215 34.2139 18.7221C34.4806 18.5227 34.8111 18.4237 35.2056 18.4251C35.6 18.4251 35.9296 18.5248 36.1944 18.7242C36.4593 18.9236 36.5917 19.17 36.5917 19.4635V25.694H33.8139ZM0 10.9174V1.81054H2.45833V7.01506C6.14722 4.89254 9.86296 3.31416 13.6056 2.2799C17.3481 1.24841 21.2 0.732666 25.1611 0.732666C30.7093 0.732666 35.7463 1.65893 40.2722 3.51146C44.7981 5.36537 48.0407 7.83402 50 10.9174H47.3889C45.2722 8.3283 42.2352 6.28955 38.2778 4.80116C34.3185 3.31277 29.9463 2.56858 25.1611 2.56858C21.3 2.56858 17.5481 3.10509 13.9056 4.17812C10.2611 5.25114 6.64444 6.88491 3.05556 9.07942H12.1806V10.9174H0Z"
+                      fill="#F8F8F8" fill-opacity="0.5" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="one-slide ">
+          <div class="send-message">
+            <div class="send-message-title" v-if="language">Suntem aici pentru dvs!</div>
+            <div class="send-message-title" v-if="!language">Мы здесь для вас!</div>
+            <div class="send-message-subtitle" v-if="language">Echipa noastră este mereu pregătită să vă răspundă la orice
+              întrebare.</div>
+            <div class="send-message-subtitle" v-if="!language">Наша команда всегда готова ответить на любой вопрос.</div>
+            <form class="form-wrapper" method="Post" @submit.prevent="submitMessage()">
+              <div class="user-info">
+                <input required v-model="fullName" class="send-message-input" placeholder="Nume" type="text">
+                <input required v-model="email" class="send-message-input" placeholder="Email" type="email">
+              </div>
+              <textarea required v-model="message" class="send-message-text" placeholder="Mesaj" id="Message"></textarea>
+              <button class="send-message-btn" type="submit">Trimiteți Mesajul</button>
+            </form>
           </div>
         </div>
       </div>
@@ -672,7 +809,7 @@ const modules = [Grid, Pagination];
   text-align: center;
   -webkit-text-stroke-width: 0.20000000298023224;
   -webkit-text-stroke-color: var(--accents, #009D06);
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -737,7 +874,7 @@ const modules = [Grid, Pagination];
   color: var(--paragraph, #F8F8F8);
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: var(--paragraph, #F8F8F8);
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -746,7 +883,7 @@ const modules = [Grid, Pagination];
 
 .first-slide-text {
   color: var(--paragraph, #F8F8F8);
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
@@ -791,7 +928,7 @@ const modules = [Grid, Pagination];
 
 .logos-info {
   color: rgba(255, 255, 255, 0.50);
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -846,7 +983,7 @@ const modules = [Grid, Pagination];
 
 .menu-info-title {
   color: #FFF;
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -868,9 +1005,13 @@ const modules = [Grid, Pagination];
   width: max-content;
 }
 
+.naveBtnStyle {
+  display: none;
+}
+
 .one-suggestion {
   color: #FFF;
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -883,7 +1024,7 @@ const modules = [Grid, Pagination];
 .slide-title {
   color: var(--paragraph, #F8F8F8);
   text-align: center;
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 26px;
   font-style: normal;
   font-weight: 300;
@@ -922,7 +1063,7 @@ const modules = [Grid, Pagination];
 .card-title {
   color: var(--paragraph, #F8F8F8);
   text-align: center;
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 26px;
   font-style: normal;
   font-weight: 300;
@@ -931,7 +1072,7 @@ const modules = [Grid, Pagination];
 
 .card-text {
   color: var(--paragraph, #F8F8F8);
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -949,6 +1090,7 @@ const modules = [Grid, Pagination];
   display: flex;
   flex-direction: column;
   gap: 60px;
+  padding-right: 20px;
 }
 
 
@@ -981,18 +1123,18 @@ const modules = [Grid, Pagination];
 .percent-title {
   color: var(--paragraph, #F8F8F8);
   text-align: center;
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  max-width: 77px;
+  max-width: 111px;
 }
 
 .percent-info-title {
   color: var(--paragraph, #F8F8F8);
   text-align: center;
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -1003,7 +1145,7 @@ const modules = [Grid, Pagination];
 
 .percent-nr {
   color: var(--paragraph, #F8F8F8);
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 26px;
   font-style: normal;
   font-weight: 700;
@@ -1028,7 +1170,7 @@ const modules = [Grid, Pagination];
 
 .bold-green {
   color: var(--paragraph, #009D06);
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 40px;
   font-style: normal;
   font-weight: 500;
@@ -1038,7 +1180,7 @@ const modules = [Grid, Pagination];
 .percent-link {
   color: var(--paragraph, #F8F8F8);
   text-align: right;
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -1060,7 +1202,7 @@ const modules = [Grid, Pagination];
 .nav-btn {
   color: var(--paragraph, #F8F8F8);
   text-align: center;
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -1098,7 +1240,7 @@ const modules = [Grid, Pagination];
 .shorthand-one {
   color: #FFF;
   text-align: center;
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -1126,11 +1268,12 @@ const modules = [Grid, Pagination];
 .service-title {
   color: var(--paragraph, #F8F8F8);
   text-align: center;
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 32px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 30px;
 }
 
 .service-one-slide {
@@ -1147,7 +1290,7 @@ const modules = [Grid, Pagination];
 
 .service-one-slide-title {
   color: var(--paragraph, #F8F8F8);
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 26px;
   font-style: normal;
   font-weight: 300;
@@ -1156,11 +1299,266 @@ const modules = [Grid, Pagination];
 
 .service-one-slide-content {
   color: var(--paragraph, #F8F8F8);
-  font-family: "Work Sans";
+  font-family: "Montserrat";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.service-slider {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.service-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.top-slides {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  margin-left: 115px;
+}
+
+.bottom-slides {
+  display: flex;
+  gap: 20px;
+}
+
+.clients {
+  color: var(--paragraph, #F8F8F8);
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.clients-green {
+  color: var(--paragraph, #009D06);
+  font-family: "Montserrat";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.clients-logos-wrapper {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  align-items: center;
+  gap: 156px;
+
+}
+
+.clients-slide {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  overflow: hidden;
+  padding: 46px 0px;
+  background: var(--darker-blocks, #001730);
+}
+
+.clients-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 156px;
+  animation: 40s clients infinite linear;
+}
+
+
+@keyframes clients {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.parteners-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 105px;
+  border-radius: 50px;
+  background: #072343;
+  padding: 50px 120px;
+}
+
+.parteners-card-words {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 65px;
+}
+
+.parteners-card-title {
+  color: #F8F8F8;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.parteners-subtitle {
+  color: #F8F8F8;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.parteners-green {
+  color: #009D06;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.parteners-card-slider-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.parteners-card-one-slide {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  max-width: 1105px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.parteners-one-slide-img {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.swipe-hand {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: 1s shakehand infinite linear;
+}
+
+@keyframes shakehand {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.send-message {
+  max-width: 898px;
+  margin: 0 auto;
+}
+
+.send-message-title {
+  color: #F8F8F8;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+
+.send-message-subtitle {
+  color: #F8F8F8;
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin-bottom: 40px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.user-info {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+}
+
+.send-message-input {
+  width: 100%;
+  padding: 20px 32px;
+  border: 0;
+  outline: none;
+  border-radius: 10px;
+  background: rgba(9, 53, 101, 0.50);
+  mix-blend-mode: luminosity;
+  color: rgb(248, 248, 248);
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.send-message-text {
+  border-radius: 10px;
+  background: rgba(9, 53, 101, 0.50);
+  mix-blend-mode: luminosity;
+  outline: none;
+  border: none;
+  height: 311px;
+  resize: none;
+  padding: 43px 17px;
+  color: rgb(248, 248, 248);
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.send-message-btn {
+  outline: none;
+  background: transparent;
+  border: 1px solid #F8F8F8;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 145%;
+  border-radius: 100px;
+  padding: 15px 0;
 }
 
 @media screen and (max-width: 1375px) {
@@ -1226,7 +1624,7 @@ const modules = [Grid, Pagination];
 
   .one-suggestion {
     color: rgba(255, 255, 255, 0.50);
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
@@ -1241,7 +1639,7 @@ const modules = [Grid, Pagination];
   .menu-info-title {
     color: #FFF;
     text-align: center;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -1310,16 +1708,26 @@ const modules = [Grid, Pagination];
   .percent-title {
     color: #FFF;
     text-align: center;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: 145%;
   }
 
+  .percent-title-left {
+    display: flex;
+    color: #F8F8F8;
+    font-family: "Work Sans";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
   .percent-nr {
     color: #FFF;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -1429,7 +1837,7 @@ const modules = [Grid, Pagination];
 
   .one-suggestion {
     color: rgba(255, 255, 255, 0.50);
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -1440,7 +1848,7 @@ const modules = [Grid, Pagination];
   .menu-info-title {
     color: #FFF;
     text-align: center;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -1490,11 +1898,12 @@ const modules = [Grid, Pagination];
     position: absolute;
     top: 77px;
     right: 15%;
+    z-index: 2;
   }
 
   .contact-phone {
     color: #FFF;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -1511,7 +1920,7 @@ const modules = [Grid, Pagination];
     text-align: center;
     -webkit-text-stroke-width: 0.20000000298023224;
     -webkit-text-stroke-color: var(--accents, #009D06);
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -1520,7 +1929,7 @@ const modules = [Grid, Pagination];
 
   .first-slide-title {
     color: #FFF;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -1530,7 +1939,7 @@ const modules = [Grid, Pagination];
 
   .first-slide-text {
     color: #FFF;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -1551,7 +1960,7 @@ const modules = [Grid, Pagination];
   .percent-info-title {
     color: #FFF;
     text-align: right;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -1560,7 +1969,7 @@ const modules = [Grid, Pagination];
 
   .bold-green {
     color: #009D06;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -1570,7 +1979,7 @@ const modules = [Grid, Pagination];
   .percent-title {
     color: #FFF;
     text-align: center;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -1579,7 +1988,7 @@ const modules = [Grid, Pagination];
 
   .percent-nr {
     color: #FFF;
-    font-family: "Work Sans";
+    font-family: "Montserrat";
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -1593,10 +2002,12 @@ const modules = [Grid, Pagination];
   .percent-stats {
     align-items: center;
     gap: 50px;
+    padding-right: 0;
   }
 
   .one-circle {
     width: 100px;
     height: 100px;
   }
-}</style>
+}
+</style>
