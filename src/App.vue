@@ -2,6 +2,8 @@
 import { ref, onMounted } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { useMotion } from '@vueuse/motion';
+import { register } from 'swiper/element/bundle';
+register();
 import axios from 'axios';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -20,7 +22,7 @@ const token = ref('7129232644:AAHhevbgd0K1tn_8kSjmL9LxOKt4Gw9txxU');
 const chatId = ref('776161361');
 
 
-function shorthand(){
+function shorthand() {
   shorthandMenu.value = !shorthandMenu.value
 }
 function languageRo() {
@@ -88,14 +90,14 @@ function submitMessage() {
               <div class="shorthand" @click="shorthand()">
                 <span class="nav-btn" v-if="language">Prescurtari</span>
                 <span class="nav-btn" v-if="!language">Ярлыки</span>
-                <div class="shorthand-svg" :class="{rotate:shorthandMenu}">
+                <div class="shorthand-svg" :class="{ rotate: shorthandMenu }">
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="10" viewBox="0 0 25 10" fill="none">
                     <path
                       d="M1.09103 1.01616C0.90375 1.13548 0.755105 1.27745 0.653666 1.43387C0.552227 1.59028 0.5 1.75806 0.5 1.92751C0.5 2.09695 0.552227 2.26473 0.653666 2.42114C0.755105 2.57756 0.90375 2.71953 1.09103 2.83885L11.0814 9.25679C11.2671 9.3771 11.4881 9.47259 11.7316 9.53776C11.9751 9.60292 12.2362 9.63647 12.5 9.63647C12.7638 9.63647 13.0249 9.60292 13.2684 9.53776C13.5119 9.47259 13.7329 9.3771 13.9186 9.25679L23.909 2.83885C24.0963 2.71953 24.2449 2.57756 24.3463 2.42114C24.4478 2.26473 24.5 2.09695 24.5 1.92751C24.5 1.75806 24.4478 1.59028 24.3463 1.43387C24.2449 1.27745 24.0963 1.13548 23.909 1.01616C23.7232 0.895849 23.5022 0.800358 23.2588 0.735192C23.0153 0.670026 22.7541 0.636475 22.4903 0.636475C22.2266 0.636475 21.9654 0.670026 21.7219 0.735192C21.4785 0.800358 21.2575 0.895849 21.0717 1.01616L12.5 6.53559L3.92828 1.01616C3.74254 0.895849 3.52155 0.800358 3.27807 0.735192C3.03458 0.670026 2.77342 0.636475 2.50965 0.636475C2.24589 0.636475 1.98473 0.670026 1.74124 0.735192C1.49776 0.800358 1.27677 0.895849 1.09103 1.01616Z"
                       fill="#F8F8F8" />
                   </svg>
                 </div>
-                <div :class="{'shorthand-menu':!shorthandMenu ,'shorthand-menu-opened':shorthandMenu }">
+                <div :class="{ 'shorthand-menu': !shorthandMenu, 'shorthand-menu-opened': shorthandMenu }">
                   <span class="shorthand-one" v-if="language">De ce Take IT?</span>
                   <span class="shorthand-one" v-if="!language">Почему Take IT?</span>
                   <span class="shorthand-one">Smart Facts</span>
@@ -327,7 +329,9 @@ function submitMessage() {
                         <stop offset="100%" stop-color="#673ab7" />
                       </linearGradient>
                     </defs>
-                    <circle v-motion :initial="{'stroke-dashoffset': 471}" :visibleOnce="{'stroke-dashoffset': 250,  transition: { duration: 2000, delay: 200,}}" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    <circle v-motion :initial="{ 'stroke-dashoffset': 471 }"
+                      :visibleOnce="{ 'stroke-dashoffset': 250, transition: { duration: 2000, delay: 200, } }" cx="80"
+                      cy="80" r="70" stroke-linecap="round" />
                   </svg>
                 </div>
                 <div class="one-circle">
@@ -341,7 +345,9 @@ function submitMessage() {
                         <stop offset="100%" stop-color="#673ab7" />
                       </linearGradient>
                     </defs>
-                    <circle v-motion :initial="{'stroke-dashoffset': 471}" :visibleOnce="{'stroke-dashoffset': 150,  transition: { duration: 2000, delay: 200,}}" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    <circle v-motion :initial="{ 'stroke-dashoffset': 471 }"
+                      :visibleOnce="{ 'stroke-dashoffset': 150, transition: { duration: 2000, delay: 200, } }" cx="80"
+                      cy="80" r="70" stroke-linecap="round" />
                   </svg>
                 </div>
               </div>
@@ -357,7 +363,9 @@ function submitMessage() {
                         <stop offset="100%" stop-color="#673ab7" />
                       </linearGradient>
                     </defs>
-                    <circle v-motion :initial="{'stroke-dashoffset': 471}" :visibleOnce="{'stroke-dashoffset': 200,  transition: { duration: 2000, delay: 200,}}" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    <circle v-motion :initial="{ 'stroke-dashoffset': 471 }"
+                      :visibleOnce="{ 'stroke-dashoffset': 200, transition: { duration: 2000, delay: 200, } }" cx="80"
+                      cy="80" r="70" stroke-linecap="round" />
                   </svg>
                 </div>
                 <div class="one-circle">
@@ -371,7 +379,9 @@ function submitMessage() {
                         <stop offset="100%" stop-color="#673ab7" />
                       </linearGradient>
                     </defs>
-                    <circle v-motion :initial="{'stroke-dashoffset': 471}" :visibleOnce="{'stroke-dashoffset': 49,  transition: { duration: 2000, delay: 200,}}" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    <circle v-motion :initial="{ 'stroke-dashoffset': 471 }"
+                      :visibleOnce="{ 'stroke-dashoffset': 49, transition: { duration: 2000, delay: 200, } }" cx="80"
+                      cy="80" r="70" stroke-linecap="round" />
                   </svg>
                 </div>
               </div>
@@ -387,7 +397,9 @@ function submitMessage() {
                         <stop offset="100%" stop-color="#673ab7" />
                       </linearGradient>
                     </defs>
-                    <circle v-motion :initial="{'stroke-dashoffset': 471}" :visibleOnce="{'stroke-dashoffset': 49,  transition: { duration: 2000, delay: 200,}}" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    <circle v-motion :initial="{ 'stroke-dashoffset': 471 }"
+                      :visibleOnce="{ 'stroke-dashoffset': 49, transition: { duration: 2000, delay: 200, } }" cx="80"
+                      cy="80" r="70" stroke-linecap="round" />
                   </svg>
                 </div>
                 <div class="one-circle">
@@ -400,7 +412,9 @@ function submitMessage() {
                         <stop offset="100%" stop-color="#673ab7" />
                       </linearGradient>
                     </defs>
-                    <circle v-motion :initial="{'stroke-dashoffset': 471}" :visibleOnce="{'stroke-dashoffset': 49, transition: { duration: 2000, delay: 200,}}" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    <circle v-motion :initial="{ 'stroke-dashoffset': 471 }"
+                      :visibleOnce="{ 'stroke-dashoffset': 49, transition: { duration: 2000, delay: 200, } }" cx="80"
+                      cy="80" r="70" stroke-linecap="round" />
                   </svg>
                 </div>
               </div>
@@ -594,7 +608,7 @@ function submitMessage() {
 
           </div>
         </div>
-        <div class="one-slide">
+        <div class="one-slide clients-wrapper">
           <div class="clients" v-if="language">Clienți ce au <span class="clients-green">încredere</span> în echipa
             noastră</div>
           <div class="clients" v-if="!language">Клиенты, которые <span class="clients-green">доверяют</span> нашей команде
@@ -617,8 +631,9 @@ function submitMessage() {
                 <span class="clients-logos-img"><img src="../src/assets/Clienti/sportlandia.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../src/assets/Clienti/terranova.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../src/assets/Clienti/trend.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/McDonald's.png" alt=""></span>
               </div>
-              <div class="clients-logos">
+              <div class="clients-logos" id="clients-logo-copy">
                 <span class="clients-logos-img"><img src="../src/assets/Clienti/carmez.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../src/assets/Clienti/colin's.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../src/assets/Clienti/darwin.png" alt=""></span>
@@ -634,11 +649,12 @@ function submitMessage() {
                 <span class="clients-logos-img"><img src="../src/assets/Clienti/sportlandia.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../src/assets/Clienti/terranova.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../src/assets/Clienti/trend.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../src/assets/Clienti/McDonald's.png" alt=""></span>
               </div>
             </div>
           </div>
         </div>
-        <div class="one-slide wrapper">
+        <div class="one-slide parteners-wrapper wrapper">
           <div class="parteners-card">
             <div class="parteners-card-words">
               <div class="parteners-card-title" v-if="language">
@@ -656,19 +672,21 @@ function submitMessage() {
             </div>
             <div class="parteners-card-slider">
               <div class="parteners-card-slider-wrapper">
-                <Swiper  :slidesPerView="1" :spaceBetween="30" :pagination="true" :modules="modules"
+                <Swiper :slidesPerView="1" spaceBetween="40" :pagination="true" :modules="modules"
                   class="parteners-card-one-slide">
-                  <swiper-slide class="parteners-one-slide-img">
-                    <div><img src="../src/assets/Partenerii/shopguard.png" alt=""></div>
-                    <div><img src="../src/assets/Partenerii/sato.png" alt=""></div>
-                    <div><img src="../src/assets/Partenerii/zebra.png" alt=""></div>
-                    <div><img src="../src/assets/Partenerii/bizebra.png" alt=""></div>
+                  <swiper-slide>
+                    <div class="parteners-img"><img src="../src/assets/Partenerii/zebra.png" alt=""></div>
+                    <div class="parteners-img"><img src="../src/assets/Partenerii/sato.png" alt=""></div>
+                    <div class="parteners-img"><img src="../src/assets/Partenerii/datalogic.png" alt=""></div>
+                    <div class="parteners-img"><img src="../src/assets/Partenerii/sensormatic.png" alt=""></div>
                   </swiper-slide>
-                  <swiper-slide class="parteners-one-slide-img">
-                    <div><img src="../src/assets/Partenerii/datalogic.png" alt=""></div>
-                    <div><img src="../src/assets/Partenerii/ccl.png" alt=""></div>
-                    <div><img src="../src/assets/Partenerii/tsc.png" alt=""></div>
-                    <div><img src="../src/assets/Partenerii/sensormatic.png" alt=""></div>
+                  <swiper-slide>
+                    <div class="parteners-img"><img src="../src/assets/Partenerii/bizebra.png" alt=""></div>
+                    <div class="parteners-img"><img style="height:100%;" src="../src/assets/Partenerii/ccl.png" alt="">
+                    </div>
+                    <div class="parteners-img"><img src="../src/assets/Partenerii/shopguard.png" alt=""></div>
+                    <div class="parteners-img"><img style="height:100%;" src="../src/assets/Partenerii/tsc.png" alt="">
+                    </div>
                   </swiper-slide>
                 </Swiper>
                 <div class="swipe-hand">
@@ -700,92 +718,108 @@ function submitMessage() {
           </div>
         </div>
         <div class="banner">
-        <div class="products-banner wrapper">
-          <div class="banner-title" v-if="language">Descoperiți produsele partenerilor noștri.</div>
-          <div class="banner-title" v-if="!language">Откройте для себя продукты наших партнеров.</div>
-          <div class="banner-btn" v-if="language">Vizualizați Ofertele</div>
-          <div class="banner-btn" v-if="!language">Посмотреть предложения</div>
+          <div class="products-banner wrapper">
+            <div class="banner-title" v-if="language">Descoperiți produsele partenerilor noștri.</div>
+            <div class="banner-title" v-if="!language">Откройте для себя продукты наших партнеров.</div>
+            <div class="banner-btn" v-if="language">Vizualizați Ofertele</div>
+            <div class="banner-btn" v-if="!language">Посмотреть предложения</div>
+          </div>
         </div>
-      </div>
       </div>
     </div>
     <footer class="footer">
-        <div class="footer-logo">
-          <img src="../src/assets/logo.png" alt="">
+      <div class="footer-logo">
+        <img src="../src/assets/logo.png" alt="">
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-one">
+          <div class="footer-links-one-title" v-if="language">Pagini Principale</div>
+          <div class="footer-links-one-title" v-if="!language">Основные страницы</div>
+          <div class="footer-links-one-under">
+            <div class="links" v-if="language">Acasă</div>
+            <div class="links" v-if="!language">Домой</div>
+            <div class="links" v-if="language">Despre Noi</div>
+            <div class="links" v-if="!language">О нас</div>
+            <div class="links" v-if="language">Catalog</div>
+            <div class="links" v-if="!language">Каталог</div>
+          </div>
         </div>
-        <div class="footer-links">
-          <div class="footer-links-one">
-            <div class="footer-links-one-title" v-if="language">Pagini Principale</div>
-            <div class="footer-links-one-title" v-if="!language">Основные страницы</div>
-            <div class="footer-links-one-under">
-              <div class="links" v-if="language">Acasă</div>
-              <div class="links" v-if="!language">Домой</div>
-              <div class="links" v-if="language">Despre Noi</div>
-              <div class="links" v-if="!language">О нас</div>
-              <div class="links" v-if="language">Catalog</div>
-              <div class="links" v-if="!language">Каталог</div>
+        <div class="footer-links-one">
+          <div class="footer-links-one-title" v-if="language">Contactează-ne</div>
+          <div class="footer-links-one-title" v-if="!language">Связаться с нами</div>
+          <div class="footer-links-one-under">
+            <div class="links">
+              <div class="links-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
+                  <g opacity="0.5">
+                    <path
+                      d="M35 26.2901L26.2166 25.2734L22.0166 29.4734C17.2853 27.0671 13.4396 23.2215 11.0333 18.4901L15.25 14.2734L14.2333 5.52344H5.04996C4.08329 22.4901 18.0333 36.4401 35 35.4734V26.2901Z"
+                      fill="#F8F8F8" />
+                  </g>
+                </svg>
+              </div>
+              <div class="links-info">+373 (79) 33 99 33</div>
+            </div>
+            <div class="links">
+              <div class="links-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
+                  <g opacity="0.5">
+                    <path
+                      d="M7.73998 8.52344H34.24C36.74 8.52344 38 9.70344 38 12.1034V28.9434C38 31.3234 36.74 32.5234 34.24 32.5234H7.73998C5.23998 32.5234 3.97998 31.3234 3.97998 28.9434V12.1034C3.97998 9.70344 5.23998 8.52344 7.73998 8.52344ZM20.98 25.7234L34.46 14.6634C34.94 14.2634 35.32 13.3434 34.72 12.5234C34.14 11.7034 33.08 11.6834 32.38 12.1834L20.98 19.9034L9.59998 12.1834C8.89998 11.6834 7.83998 11.7034 7.25998 12.5234C6.65998 13.3434 7.03998 14.2634 7.51998 14.6634L20.98 25.7234Z"
+                      fill="#F8F8F8" />
+                  </g>
+                </svg>
+              </div>
+              <div class="links-info">sales.b2b@takeit.md</div>
             </div>
           </div>
-          <div class="footer-links-one">
-            <div class="footer-links-one-title" v-if="language">Contactează-ne</div>
-            <div class="footer-links-one-title" v-if="!language">Связаться с нами</div>
-            <div class="footer-links-one-under">
-              <div class="links">
-                <div class="links-svg">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
-  <g opacity="0.5">
-    <path d="M35 26.2901L26.2166 25.2734L22.0166 29.4734C17.2853 27.0671 13.4396 23.2215 11.0333 18.4901L15.25 14.2734L14.2333 5.52344H5.04996C4.08329 22.4901 18.0333 36.4401 35 35.4734V26.2901Z" fill="#F8F8F8"/>
-  </g>
-</svg>
-                </div>
-                <div class="links-info">+373 (79) 33 99 33</div>
-              </div>
-              <div class="links">
-                <div class="links-svg">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
-  <g opacity="0.5">
-    <path d="M7.73998 8.52344H34.24C36.74 8.52344 38 9.70344 38 12.1034V28.9434C38 31.3234 36.74 32.5234 34.24 32.5234H7.73998C5.23998 32.5234 3.97998 31.3234 3.97998 28.9434V12.1034C3.97998 9.70344 5.23998 8.52344 7.73998 8.52344ZM20.98 25.7234L34.46 14.6634C34.94 14.2634 35.32 13.3434 34.72 12.5234C34.14 11.7034 33.08 11.6834 32.38 12.1834L20.98 19.9034L9.59998 12.1834C8.89998 11.6834 7.83998 11.7034 7.25998 12.5234C6.65998 13.3434 7.03998 14.2634 7.51998 14.6634L20.98 25.7234Z" fill="#F8F8F8"/>
-  </g>
-</svg>
-                </div>
-                <div class="links-info">sales.b2b@takeit.md</div>
-              </div>
+        </div>
+        <div class="social-links">
+          <div class="social-links-title" v-if="language">Abonează-te și la alte pagini de-a noastre!</div>
+          <div class="social-links-title" v-if="!language">Подпишитесь на другие наши страницы!</div>
+          <div class="social-links-svg">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
+                <path
+                  d="M40 20.5736C40 9.50589 31.04 0.523438 20 0.523438C8.96 0.523438 0 9.50589 0 20.5736C0 30.2778 6.88 38.358 16 40.2227V26.5886H12V20.5736H16V15.561C16 11.6914 19.14 8.54349 23 8.54349H28V14.5585H24C22.9 14.5585 22 15.4608 22 16.5635V20.5736H28V26.5886H22V40.5234C32.1 39.5209 40 30.9796 40 20.5736Z"
+                  fill="#F8F8F8" fill-opacity="0.5" />
+              </svg>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
+                <path
+                  d="M19.9946 10.2615C14.3159 10.2615 9.73288 14.8446 9.73288 20.5234C9.73288 26.2023 14.3159 30.7854 19.9946 30.7854C25.6734 30.7854 30.2564 26.2023 30.2564 20.5234C30.2564 14.8446 25.6734 10.2615 19.9946 10.2615ZM19.9946 27.1929C16.3222 27.1929 13.3252 24.1959 13.3252 20.5234C13.3252 16.851 16.3222 13.8539 19.9946 13.8539C23.667 13.8539 26.664 16.851 26.664 20.5234C26.664 24.1959 23.667 27.1929 19.9946 27.1929ZM30.6766 7.4496C29.3508 7.4496 28.2801 8.52033 28.2801 9.84622C28.2801 11.1721 29.3508 12.2428 30.6766 12.2428C32.0025 12.2428 33.0732 11.1771 33.0732 9.84622C33.0736 9.53138 33.0119 9.21956 32.8916 8.92861C32.7713 8.63766 32.5948 8.3733 32.3722 8.15068C32.1495 7.92805 31.8852 7.75153 31.5942 7.63123C31.3033 7.51093 30.9915 7.44921 30.6766 7.4496ZM39.9978 20.5234C39.9978 17.7616 40.0228 15.0247 39.8677 12.2679C39.7126 9.0657 38.9821 6.22378 36.6406 3.88219C34.294 1.53561 31.4572 0.810118 28.2551 0.655014C25.4932 0.499909 22.7564 0.524926 19.9996 0.524926C17.2378 0.524926 14.501 0.499909 11.7442 0.655014C8.5421 0.810118 5.70023 1.54061 3.35869 3.88219C1.01215 6.22878 0.286675 9.0657 0.131574 12.2679C-0.0235283 15.0297 0.0014882 17.7666 0.0014882 20.5234C0.0014882 23.2803 -0.0235283 26.0222 0.131574 28.779C0.286675 31.9812 1.01716 34.8231 3.35869 37.1647C5.70524 39.5113 8.5421 40.2368 11.7442 40.3919C14.506 40.547 17.2428 40.5219 19.9996 40.5219C22.7614 40.5219 25.4982 40.547 28.2551 40.3919C31.4572 40.2368 34.299 39.5063 36.6406 37.1647C38.9871 34.8181 39.7126 31.9812 39.8677 28.779C40.0278 26.0222 39.9978 23.2853 39.9978 20.5234ZM35.5949 32.3214C35.2296 33.232 34.7893 33.9125 34.0839 34.613C33.3784 35.3184 32.703 35.7587 31.7924 36.124C29.1606 37.1697 22.9115 36.9345 19.9946 36.9345C17.0777 36.9345 10.8236 37.1697 8.19187 36.129C7.28127 35.7637 6.60082 35.3234 5.90036 34.618C5.1949 33.9125 4.75461 33.237 4.38937 32.3264C3.34869 29.6896 3.58384 23.4404 3.58384 20.5234C3.58384 17.6065 3.34869 11.3522 4.38937 8.72046C4.75461 7.80985 5.1949 7.12939 5.90036 6.42891C6.60583 5.72844 7.28127 5.28314 8.19187 4.91789C10.8236 3.87719 17.0777 4.11235 19.9946 4.11235C22.9115 4.11235 29.1657 3.87719 31.7974 4.91789C32.708 5.28314 33.3884 5.72344 34.0889 6.42891C34.7943 7.13439 35.2346 7.80985 35.5999 8.72046C36.6406 11.3522 36.4054 17.6065 36.4054 20.5234C36.4054 23.4404 36.6406 29.6896 35.5949 32.3214Z"
+                  fill="#F8F8F8" fill-opacity="0.5" />
+              </svg>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
+                <path opacity="0.5"
+                  d="M35.5556 0.523438C36.7343 0.523438 37.8648 0.99169 38.6983 1.82518C39.5317 2.65868 40 3.78914 40 4.96788V36.079C40 37.2577 39.5317 38.3882 38.6983 39.2217C37.8648 40.0552 36.7343 40.5234 35.5556 40.5234H4.44444C3.2657 40.5234 2.13524 40.0552 1.30175 39.2217C0.468252 38.3882 0 37.2577 0 36.079V4.96788C0 3.78914 0.468252 2.65868 1.30175 1.82518C2.13524 0.99169 3.2657 0.523438 4.44444 0.523438H35.5556ZM34.4444 34.9679V23.1901C34.4444 21.2688 33.6812 19.4261 32.3226 18.0675C30.964 16.7089 29.1213 15.9457 27.2 15.9457C25.3111 15.9457 23.1111 17.1012 22.0444 18.8345V16.3679H15.8444V34.9679H22.0444V24.0123C22.0444 22.3012 23.4222 20.9012 25.1333 20.9012C25.9585 20.9012 26.7498 21.229 27.3332 21.8124C27.9167 22.3959 28.2444 23.1872 28.2444 24.0123V34.9679H34.4444ZM8.62222 12.879C9.61236 12.879 10.562 12.4857 11.2621 11.7855C11.9622 11.0854 12.3556 10.1358 12.3556 9.14566C12.3556 7.07899 10.6889 5.3901 8.62222 5.3901C7.62619 5.3901 6.67095 5.78578 5.96664 6.49008C5.26234 7.19438 4.86667 8.14962 4.86667 9.14566C4.86667 11.2123 6.55556 12.879 8.62222 12.879ZM11.7111 34.9679V16.3679H5.55556V34.9679H11.7111Z"
+                  fill="#F8F8F8" />
+              </svg>
             </div>
           </div>
-          <div class="social-links">
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
-  <path d="M40 20.5736C40 9.50589 31.04 0.523438 20 0.523438C8.96 0.523438 0 9.50589 0 20.5736C0 30.2778 6.88 38.358 16 40.2227V26.5886H12V20.5736H16V15.561C16 11.6914 19.14 8.54349 23 8.54349H28V14.5585H24C22.9 14.5585 22 15.4608 22 16.5635V20.5736H28V26.5886H22V40.5234C32.1 39.5209 40 30.9796 40 20.5736Z" fill="#F8F8F8" fill-opacity="0.5"/>
-</svg>
-</div>
-<div>
-  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
-  <path d="M19.9946 10.2615C14.3159 10.2615 9.73288 14.8446 9.73288 20.5234C9.73288 26.2023 14.3159 30.7854 19.9946 30.7854C25.6734 30.7854 30.2564 26.2023 30.2564 20.5234C30.2564 14.8446 25.6734 10.2615 19.9946 10.2615ZM19.9946 27.1929C16.3222 27.1929 13.3252 24.1959 13.3252 20.5234C13.3252 16.851 16.3222 13.8539 19.9946 13.8539C23.667 13.8539 26.664 16.851 26.664 20.5234C26.664 24.1959 23.667 27.1929 19.9946 27.1929ZM30.6766 7.4496C29.3508 7.4496 28.2801 8.52033 28.2801 9.84622C28.2801 11.1721 29.3508 12.2428 30.6766 12.2428C32.0025 12.2428 33.0732 11.1771 33.0732 9.84622C33.0736 9.53138 33.0119 9.21956 32.8916 8.92861C32.7713 8.63766 32.5948 8.3733 32.3722 8.15068C32.1495 7.92805 31.8852 7.75153 31.5942 7.63123C31.3033 7.51093 30.9915 7.44921 30.6766 7.4496ZM39.9978 20.5234C39.9978 17.7616 40.0228 15.0247 39.8677 12.2679C39.7126 9.0657 38.9821 6.22378 36.6406 3.88219C34.294 1.53561 31.4572 0.810118 28.2551 0.655014C25.4932 0.499909 22.7564 0.524926 19.9996 0.524926C17.2378 0.524926 14.501 0.499909 11.7442 0.655014C8.5421 0.810118 5.70023 1.54061 3.35869 3.88219C1.01215 6.22878 0.286675 9.0657 0.131574 12.2679C-0.0235283 15.0297 0.0014882 17.7666 0.0014882 20.5234C0.0014882 23.2803 -0.0235283 26.0222 0.131574 28.779C0.286675 31.9812 1.01716 34.8231 3.35869 37.1647C5.70524 39.5113 8.5421 40.2368 11.7442 40.3919C14.506 40.547 17.2428 40.5219 19.9996 40.5219C22.7614 40.5219 25.4982 40.547 28.2551 40.3919C31.4572 40.2368 34.299 39.5063 36.6406 37.1647C38.9871 34.8181 39.7126 31.9812 39.8677 28.779C40.0278 26.0222 39.9978 23.2853 39.9978 20.5234ZM35.5949 32.3214C35.2296 33.232 34.7893 33.9125 34.0839 34.613C33.3784 35.3184 32.703 35.7587 31.7924 36.124C29.1606 37.1697 22.9115 36.9345 19.9946 36.9345C17.0777 36.9345 10.8236 37.1697 8.19187 36.129C7.28127 35.7637 6.60082 35.3234 5.90036 34.618C5.1949 33.9125 4.75461 33.237 4.38937 32.3264C3.34869 29.6896 3.58384 23.4404 3.58384 20.5234C3.58384 17.6065 3.34869 11.3522 4.38937 8.72046C4.75461 7.80985 5.1949 7.12939 5.90036 6.42891C6.60583 5.72844 7.28127 5.28314 8.19187 4.91789C10.8236 3.87719 17.0777 4.11235 19.9946 4.11235C22.9115 4.11235 29.1657 3.87719 31.7974 4.91789C32.708 5.28314 33.3884 5.72344 34.0889 6.42891C34.7943 7.13439 35.2346 7.80985 35.5999 8.72046C36.6406 11.3522 36.4054 17.6065 36.4054 20.5234C36.4054 23.4404 36.6406 29.6896 35.5949 32.3214Z" fill="#F8F8F8" fill-opacity="0.5"/>
-</svg>
-</div>
-<div>
-  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
-  <path opacity="0.5" d="M35.5556 0.523438C36.7343 0.523438 37.8648 0.99169 38.6983 1.82518C39.5317 2.65868 40 3.78914 40 4.96788V36.079C40 37.2577 39.5317 38.3882 38.6983 39.2217C37.8648 40.0552 36.7343 40.5234 35.5556 40.5234H4.44444C3.2657 40.5234 2.13524 40.0552 1.30175 39.2217C0.468252 38.3882 0 37.2577 0 36.079V4.96788C0 3.78914 0.468252 2.65868 1.30175 1.82518C2.13524 0.99169 3.2657 0.523438 4.44444 0.523438H35.5556ZM34.4444 34.9679V23.1901C34.4444 21.2688 33.6812 19.4261 32.3226 18.0675C30.964 16.7089 29.1213 15.9457 27.2 15.9457C25.3111 15.9457 23.1111 17.1012 22.0444 18.8345V16.3679H15.8444V34.9679H22.0444V24.0123C22.0444 22.3012 23.4222 20.9012 25.1333 20.9012C25.9585 20.9012 26.7498 21.229 27.3332 21.8124C27.9167 22.3959 28.2444 23.1872 28.2444 24.0123V34.9679H34.4444ZM8.62222 12.879C9.61236 12.879 10.562 12.4857 11.2621 11.7855C11.9622 11.0854 12.3556 10.1358 12.3556 9.14566C12.3556 7.07899 10.6889 5.3901 8.62222 5.3901C7.62619 5.3901 6.67095 5.78578 5.96664 6.49008C5.26234 7.19438 4.86667 8.14962 4.86667 9.14566C4.86667 11.2123 6.55556 12.879 8.62222 12.879ZM11.7111 34.9679V16.3679H5.55556V34.9679H11.7111Z" fill="#F8F8F8"/>
-</svg>
-</div>
         </div>
         <div class="addreas">
           <div class="addreas-svg">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
-  <g opacity="0.5">
-    <path d="M20 19.69C18.895 19.69 17.8352 19.251 17.0538 18.4696C16.2724 17.6882 15.8334 16.6284 15.8334 15.5234C15.8334 14.4183 16.2724 13.3585 17.0538 12.5771C17.8352 11.7957 18.895 11.3567 20 11.3567C21.1051 11.3567 22.1649 11.7957 22.9463 12.5771C23.7277 13.3585 24.1667 14.4183 24.1667 15.5234C24.1667 16.0705 24.0589 16.6123 23.8495 17.1179C23.6401 17.6234 23.3332 18.0827 22.9463 18.4696C22.5594 18.8565 22.1001 19.1635 21.5946 19.3729C21.089 19.5822 20.5472 19.69 20 19.69ZM20 3.85669C16.9058 3.85669 13.9384 5.08585 11.7505 7.27378C9.56254 9.4617 8.33337 12.4292 8.33337 15.5234C8.33337 24.2734 20 37.19 20 37.19C20 37.19 31.6667 24.2734 31.6667 15.5234C31.6667 12.4292 30.4375 9.4617 28.2496 7.27378C26.0617 5.08585 23.0942 3.85669 20 3.85669Z" fill="#F8F8F8"/>
-  </g>
-</svg>
+              <g opacity="0.5">
+                <path
+                  d="M20 19.69C18.895 19.69 17.8352 19.251 17.0538 18.4696C16.2724 17.6882 15.8334 16.6284 15.8334 15.5234C15.8334 14.4183 16.2724 13.3585 17.0538 12.5771C17.8352 11.7957 18.895 11.3567 20 11.3567C21.1051 11.3567 22.1649 11.7957 22.9463 12.5771C23.7277 13.3585 24.1667 14.4183 24.1667 15.5234C24.1667 16.0705 24.0589 16.6123 23.8495 17.1179C23.6401 17.6234 23.3332 18.0827 22.9463 18.4696C22.5594 18.8565 22.1001 19.1635 21.5946 19.3729C21.089 19.5822 20.5472 19.69 20 19.69ZM20 3.85669C16.9058 3.85669 13.9384 5.08585 11.7505 7.27378C9.56254 9.4617 8.33337 12.4292 8.33337 15.5234C8.33337 24.2734 20 37.19 20 37.19C20 37.19 31.6667 24.2734 31.6667 15.5234C31.6667 12.4292 30.4375 9.4617 28.2496 7.27378C26.0617 5.08585 23.0942 3.85669 20 3.85669Z"
+                  fill="#F8F8F8" />
+              </g>
+            </svg>
           </div>
           <div class="adreas-word">
             str. Vasile Alecsandri, 63
           </div>
         </div>
-        </div>
-        <div class="footer-map">
-          <img src="../src/assets/map.png" alt="">
-        </div>
-      </footer>
+      </div>
+      <div class="footer-map">
+        <img src="../src/assets/map.png" alt="">
+      </div>
+    </footer>
   </div>
   <router-view>
 
@@ -1173,9 +1207,10 @@ function submitMessage() {
 }
 
 
-.about{
+.about {
   cursor: pointer;
 }
+
 .percent-slide {
   display: flex;
   justify-content: space-between;
@@ -1326,7 +1361,7 @@ function submitMessage() {
   z-index: 3;
   display: flex;
   overflow: hidden;
-  opacity: 0 ;
+  opacity: 0;
   appearance: 0;
   padding: 35px 66px 34px 66px;
   flex-direction: column;
@@ -1352,6 +1387,7 @@ function submitMessage() {
   cursor: pointer;
   border-bottom: 1px solid rgba(9, 53, 101, 0.50);
 }
+
 .first-slide-svg {
   display: flex;
   width: 800px;
@@ -1472,7 +1508,7 @@ function submitMessage() {
   align-items: center;
   justify-content: center;
   gap: 156px;
-  animation: 40s clients infinite linear;
+  animation: 60s clients infinite linear;
 }
 
 
@@ -1495,6 +1531,9 @@ function submitMessage() {
   border-radius: 50px;
   background: #072343;
   padding: 50px 120px;
+  -webkit-box-shadow: 2px -2px 33px 5px rgba(0, 157, 6, 0.5);
+  -moz-box-shadow: 2px -2px 33px 5px rgba(0, 157, 6, 0.5);
+  box-shadow: 2px -2px 33px 5px rgba(0, 157, 6, 0.5);
 }
 
 .parteners-card-words {
@@ -1547,6 +1586,7 @@ function submitMessage() {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  flex-direction: column;
 }
 
 .parteners-one-slide-img {
@@ -1557,20 +1597,8 @@ function submitMessage() {
 
 .swipe-hand {
   position: absolute;
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: 1s shakehand infinite linear;
-}
-
-@keyframes shakehand {
-  from {
-    transform: translateX(-50%);
-  }
-
-  to {
-    transform: translateX(-100%);
-  }
+  left: 58%;
+  bottom: 0;
 }
 
 .send-message {
@@ -1659,7 +1687,8 @@ function submitMessage() {
   border-radius: 100px;
   padding: 15px 0;
 }
-.shorthand-menu-opened{
+
+.shorthand-menu-opened {
   position: absolute;
   top: 30px;
   left: -115px;
@@ -1674,96 +1703,134 @@ function submitMessage() {
   align-items: center;
   transition: all 0.3s linear;
 }
-.rotate{
+
+.rotate {
   transform: rotate(180deg);
 }
-.banner{
+
+.banner {
   background: #006004;
 }
-.products{
+
+.products {
   cursor: pointer;
 }
+
 .products-banner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   padding: 28.5px 0;
 }
+
 .banner-title {
   color: #F8F8F8;
-font-family: "Montserrat";
-font-size: 26px;
-font-style: normal;
-font-weight: 300;
-line-height: normal;
+  font-family: "Montserrat";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
 }
+
 .banner-btn {
   display: flex;
-width: 239px;
-height: 54px;
-justify-content: center;
-align-items: center;
-border-radius: 100px;
-border: 2px solid #F8F8F8;
-background: rgba(186, 186, 186, 0.00);
-color: #F8F8F8;
-font-family: "Montserrat";
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+  width: 239px;
+  height: 54px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 2px solid #F8F8F8;
+  background: rgba(186, 186, 186, 0.00);
+  color: #F8F8F8;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
+
 .footer {
   background: #001730;
   padding: 121px 100px;
   display: flex;
   height: 310px;
-  gap:61px;
+  gap: 61px;
   align-items: center;
 }
+
 .footer-links {
   display: flex;
   gap: 80px;
   width: 100%;
   position: relative;
 }
+
 .footer-links-one {
   display: flex;
   flex-direction: column;
   gap: 30px;
   width: 100%;
 }
+
 .footer-links-one-title {
   color: rgba(248, 248, 248, 0.50);
-font-family: "Montserrat";
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
+
 .footer-links-one-under {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
+
 .links {
   display: flex;
   align-items: center;
   gap: 8px;
   color: rgba(248, 248, 248, 0.50);
-font-family: "Montserrat";
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
+
 .social-links {
   display: flex;
-  gap: 50px;
+  flex-direction: column;
+  gap: 17px;
   position: absolute;
   bottom: -100px;
 }
+
+.social-links-title {
+  display: none;
+  color: rgba(255, 255, 255, 0.50);
+  font-family: "Montserrat";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 145%;
+}
+
+.social-links-svg {
+  display: flex;
+  gap: 50px;
+}
+
+.parteners-img {
+  max-height: 81px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
 .addreas {
   display: flex;
   align-items: center;
@@ -1771,18 +1838,71 @@ line-height: normal;
   right: 10px;
   bottom: -100px;
 }
+
 .adreas-word {
   color: #F8F8F8;
-font-family: "Montserrat";
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
+
+@media screen and (max-width: 1600px) {
+  .footer {
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    padding: 88px 38px;
+  }
+
+  .footer-logo {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .footer-links {
+    margin-bottom: 65px;
+    position: unset;
+  }
+
+  .social-links {
+    bottom: 88px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .addreas {
+    top: 45%;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 10px;
+  }
+
+  .social-links-title {
+    display: block;
+  }
+
+  .social-links-svg {
+    gap: 100px
+  }
+
+  .footer-map {
+    margin-bottom: 139px;
+  }
+}
+
 @media screen and (max-width: 1375px) {
 
   .nav-right {
     padding: 0 35px 0 0;
+  }
+
+  .send-message-input {
+    width: -webkit-fill-available;
   }
 
   .first-slide {
@@ -1899,6 +2019,10 @@ line-height: normal;
     padding: 0 35px 0;
   }
 
+  #clients-logo-copy {
+    display: none;
+  }
+
   .percent-info-title {
     font-size: 25px;
     max-width: 368px;
@@ -1944,6 +2068,10 @@ line-height: normal;
     line-height: normal;
   }
 
+  .form-wrapper {
+    padding: 0 20px;
+  }
+
   .percent-nr {
     color: #FFF;
     font-family: "Montserrat";
@@ -1952,15 +2080,73 @@ line-height: normal;
     font-weight: 500;
     line-height: 145%;
   }
-  .parteners-card{
+
+  .parteners-card {
     padding: 57px 15px;
   }
-  .parteners-one-slide-img{
-    display:grid;
-    grid-template-columns:100px 100px;
+
+  .parteners-one-slide-img {
+    display: grid;
+    grid-template-columns: 100px 100px;
     grid-column-gap: 70px;
     grid-row-gap: 50px;
     width: 100%;
+  }
+
+  .products-banner {
+    padding: 28.5px 20px;
+    margin: 0;
+  }
+
+
+  .parteners-card-one-slide {
+    max-width: 700px;
+  }
+
+  .parteners-subtitle {
+    max-width: 500px;
+  }
+
+
+  .clients-green {
+    font-size: 20px;
+  }
+
+  .parteners-card-title {
+    font-size: 22px;
+  }
+
+  .parteners-subtitle,
+  .parteners-green {
+    font-size: 16px;
+  }
+
+  .parteners-card-words {
+    gap: 20px
+  }
+
+  .send-message-title {
+    font-size: 25px;
+    padding: 0 10px;
+  }
+
+  .send-message-subtitle {
+    font-size: 20px;
+    padding: 0 10px;
+  }
+
+  .parteners-wrapper {
+    padding: 0 30px;
+  }
+
+  .banner-title {
+    font-size: 17px;
+  }
+
+  .banner-btn {
+    font-size: 15px;
+    width: 160px;
+    height: 42px;
   }
 }
 
@@ -1969,6 +2155,14 @@ line-height: normal;
     padding-top: 72px;
   }
 
+  .clients-wrapper {
+    background: #001730;
+    padding: 55px 34px;
+  }
+
+  .user-info {
+    flex-direction: column;
+  }
 
   .language {
     border-radius: 20px;
@@ -2103,8 +2297,6 @@ line-height: normal;
     pointer-events: none
   }
 
-
-
   .first-slide {
     margin: 0 auto;
     padding: 80px 35px 0;
@@ -2176,6 +2368,18 @@ line-height: normal;
     text-align: center;
   }
 
+  .parteners-card-one-slide {
+    max-width: 300px;
+  }
+
+  .parteners-img {
+    max-height: 30px;
+  }
+
+  .parteners-img img {
+    object-fit: contain;
+    width: 100%;
+  }
 
   .percent-slide {
     flex-direction: column-reverse;
@@ -2213,6 +2417,7 @@ line-height: normal;
     font-style: normal;
     font-weight: 400;
     line-height: 145%;
+    max-width: 70px;
   }
 
   .percent-nr {
@@ -2237,6 +2442,55 @@ line-height: normal;
   .one-circle {
     width: 100px;
     height: 100px;
+  }
+
+  .clients-logos {
+    grid-template-columns: 190px 160px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .clients-logos-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .banner-title {
+    font-size: 10px;
+  }
+
+  .footer-links {
+    gap: 0;
+  }
+
+  .banner-btn {
+    font-size: 10px;
+    width: 121px;
+    height: 33px;
+  }
+
+  .footer-links-one-title {
+    font-size: 12px;
+  }
+
+  .links {
+    font-size: 12px;
+  }
+
+  .links-svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .links-svg svg {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .addreas {
+    top: 42%
   }
 }
 </style>
