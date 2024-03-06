@@ -353,6 +353,8 @@ template {
 
 .nav-left {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 
