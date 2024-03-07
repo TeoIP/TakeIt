@@ -17,8 +17,8 @@ const props = defineProps(['language']);
             <router-link to="/"  class="links" v-if="!language">Домой</router-link>
             <router-link to="/About" class="links" v-if="language">Despre Noi</router-link>
             <router-link to="/About" class="links" v-if="!language">О нас</router-link>
-            <div class="links" v-if="language">Catalog</div>
-            <div class="links" v-if="!language">Каталог</div>
+            <a href="https://shop.msoft.md/index.php?dispatch=categories.view&category_id=166" class="links" v-if="language">Catalog</a>
+            <a href="https://shop.msoft.md/index.php?dispatch=categories.view&category_id=166" class="links" v-if="!language">Каталог</a>
           </div>
         </div>
         <div class="footer-links-one">

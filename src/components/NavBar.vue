@@ -144,8 +144,8 @@ onBeforeUnmount(() => {
                     <router-link to="/" class="one-suggestion" v-if="!language">Домой</router-link>
                     <router-link to="/About" class="one-suggestion" v-if="language">Despre Noi</router-link>
                     <router-link to="/About" class="one-suggestion" v-if="!language">О нас</router-link>
-                    <a href="" class="one-suggestion" v-if="language">Catalog</a>
-                    <a href="" class="one-suggestion" v-if="!language">Каталог</a>
+                    <a href="https://shop.msoft.md/index.php?dispatch=categories.view&category_id=167" class="one-suggestion" v-if="language">Catalog</a>
+                    <a href="https://shop.msoft.md/index.php?dispatch=categories.view&category_id=167" class="one-suggestion" v-if="!language">Каталог</a>
                   </div>
                 </div>
                 <div class="menu-info-one">

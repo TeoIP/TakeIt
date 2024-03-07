@@ -39,7 +39,7 @@ const romanianLinks = [
         <div class="one-slide">
          <Nav-bar @toggleLanguage="toggleLanguage" :links="romanianLinks"></Nav-bar>
           <div class="first-slide wrapper" id="why">
-            <div class="first-slide-svg"><img src="/src/assets/background.png" alt=""></div>
+            <div class="first-slide-svg"><img src="/src/assets/Background.png" alt=""></div>
             <div class="first-slide-words">
               <div class="first-slide-title" v-if="language">E TIMPUL SĂ-ȚI MODERNIZEZI AFACEREA!</div>
               <div class="first-slide-title" v-if="!language">ПРИШЛО ВРЕМЯ МОДЕРНИЗИРОВАТЬ ВАШ БИЗНЕС!</div>
@@ -310,7 +310,7 @@ const romanianLinks = [
             <div class="clients-logos-wrapper">
               <div class="clients-logos">
                 <span class="clients-logos-img"><img src="../assets/Clienti/carmez.png" alt=""></span>
-                <span class="clients-logos-img"><img src="../assets/Clienti/colin's.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../assets/Clienti/colins.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../assets/Clienti/darwin.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../assets/Clienti/linella.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../assets/Clienti/maximum.png" alt=""></span>
@@ -324,11 +324,11 @@ const romanianLinks = [
                 <span class="clients-logos-img"><img src="../assets/Clienti/sportlandia.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../assets/Clienti/terranova.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../assets/Clienti/trend.png" alt=""></span>
-                <span class="clients-logos-img"><img src="../assets/Clienti/McDonald's.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../assets/Clienti/McDonalds.png" alt=""></span>
               </div>
               <div class="clients-logos" id="clients-logo-copy">
                 <span class="clients-logos-img"><img src="../assets/Clienti/carmez.png" alt=""></span>
-                <span class="clients-logos-img"><img src="../assets/Clienti/colin's.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../assets/Clienti/colins.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../assets/Clienti/darwin.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../assets/Clienti/linella.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../assets/Clienti/maximum.png" alt=""></span>
@@ -342,7 +342,7 @@ const romanianLinks = [
                 <span class="clients-logos-img"><img src="../assets/Clienti/sportlandia.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../assets/Clienti/terranova.png" alt=""></span>
                 <span class="clients-logos-img"><img src="../assets/Clienti/trend.png" alt=""></span>
-                <span class="clients-logos-img"><img src="../assets/Clienti/McDonald's.png" alt=""></span>
+                <span class="clients-logos-img"><img src="../assets/Clienti/McDonalds.png" alt=""></span>
               </div>
             </div>
           </div>

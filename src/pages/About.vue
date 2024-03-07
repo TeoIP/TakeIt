@@ -24,7 +24,7 @@ function toggleLanguage(){
           <NavBar @toggleLanguage="toggleLanguage" :links="romanianLinks"></NavBar>
         <div class="first-slide wrapper">
             <div class="first-slide-svg">
-              <img src="/src/assets/background.png" alt=""></div>
+              <img src="../assets/Background.png" alt=""></div>
             <div class="first-slide-words">
               <div class="first-slide-title" v-if="language">Despre TakeIT</div>
               <div class="first-slide-title" v-if="!language">Об <span class="green-title">TakeIT</span></div>
@@ -140,7 +140,7 @@ function toggleLanguage(){
           <div class="products-banner wrapper">
             <div class="banner-title" v-if="language">Descoperiți produsele partenerilor noștri.</div>
             <div class="banner-title" v-if="!language">Откройте для себя продукты наших партнеров.</div>
-            <div class="banner-btn">Vizualizați Ofertele</div>
+            <a href="https://shop.msoft.md/index.php?dispatch=product_features.view_all&filter_id=10" class="banner-btn">Vizualizați Ofertele</a>
           </div>
   </div>
 </div>

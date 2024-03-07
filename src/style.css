@@ -180,11 +180,13 @@ template {
 [hidden] {
   display: none;
 }
-.map-link{
+
+.map-link {
   display: flex;
   width: 100%;
   height: 100%;
 }
+
 .swiper {
   width: 100%;
   height: 100%;
@@ -364,9 +366,11 @@ template {
   align-items: center;
   text-decoration: none;
 }
-.nav-contact:hover{
+
+.nav-contact:hover {
   text-decoration: none;
 }
+
 .contact-title {
   color: var(--accents, #009D06);
   text-align: center;
@@ -875,7 +879,6 @@ template {
   flex-shrink: 0;
   border-radius: 20px;
   background: #093565;
-  mix-blend-mode: luminosity;
   padding: 40px 75px;
   margin: 0 10px;
   display: flex;
@@ -1221,6 +1224,14 @@ template {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.banner-btn:hover {
+  text-decoration: none;
+  color: #8194a8;
+  border: 2px solid #8194a8;
 }
 
 .footer {
@@ -1241,12 +1252,15 @@ template {
   text-decoration: none;
   color: #0056b3;
 }
-.one-suggestion{
+
+.one-suggestion {
   text-decoration: none;
 }
-.one-suggestion:hover{
+
+.one-suggestion:hover {
   color: #0056b3;
 }
+
 .footer-links {
   display: flex;
   gap: 80px;
@@ -1954,6 +1968,7 @@ template {
   .percent-slide {
     flex-direction: column-reverse;
     gap: 70px;
+    padding: 0;
   }
 
   .percent-info {
@@ -2084,4 +2099,12 @@ template {
     top: 42%
   }
 
+  .wrapper {
+    padding: 0;
+  }
+
+  .slide-title {
+    padding: 0;
+    font-size: 20px;
+  }
 }
