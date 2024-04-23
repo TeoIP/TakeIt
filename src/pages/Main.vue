@@ -1,7 +1,6 @@
 <script setup>
 import { ref, watch, onMounted ,onBeforeUnmount } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { useMotion } from '@vueuse/motion';
 import { register } from 'swiper/element/bundle';
 import 'bootstrap/dist/css/bootstrap.css'
 import  NavBar  from "../components/NavBar.vue";
@@ -39,14 +38,14 @@ const romanianLinks = [
         <div class="one-slide">
          <Nav-bar @toggleLanguage="toggleLanguage" :links="romanianLinks"></Nav-bar>
           <div class="first-slide wrapper" id="why">
-            <div class="first-slide-svg"><img src="/src/assets/Background.png" alt=""></div>
+            <div class="first-slide-svg"><img src="/src/assets/background.svg" alt=""></div>
             <div class="first-slide-words">
-              <div class="first-slide-title" v-if="language">E TIMPUL SĂ-ȚI MODERNIZEZI AFACEREA!</div>
-              <div class="first-slide-title" v-if="!language">ПРИШЛО ВРЕМЯ МОДЕРНИЗИРОВАТЬ ВАШ БИЗНЕС!</div>
+              <div class="first-slide-title" v-if="language">E timpul să-ți modernizezi afacerea!</div>
+              <div class="first-slide-title" v-if="!language">Пришло время модернизировать ваш бизнес!</div>
               <div class="first-slide-text" v-if="language">Automatizare proceselor operaționale, soluții complexe pentru
-                magazine, centre comerciale, restaurante, bănci, farmacii, centre auto și alte unități comerciale.</div>
+                magazine, centre comerciale, restaurante, bănci, farmacii, centre auto și alte unități comerciale</div>
               <div class="first-slide-text" v-if="!language">Автоматизация операционных процессов, комплексные решения для
-                магазинов, торговых центров, ресторанов, банков, аптек, автоцентров и других коммерческих объектов.</div>
+                магазинов, торговых центров, ресторанов, банков, аптек, автоцентров и других коммерческих объектов</div>
             </div>
           </div>
         </div>
@@ -90,10 +89,10 @@ const romanianLinks = [
               <div class="card-words">
                 <div class="card-title" v-if="language">Experiență în Muncă</div>
                 <div class="card-title" v-if="!language">Опыт работы</div>
-                <div class="card-text" v-if="language">Echipa Take IT se remarcă prin echipa sa de experți cu 20+ ani de
+                <div class="card-text" v-if="language">Take IT se remarcă prin echipa sa de experți cu 20+ ani de
                   experiență, asigurând clienții cu cunoștințe solide și înțelegere profundă a cerințelor tehnologice,
                   contribuind la oferirea de soluții personalizate și suport tehnic de calitate.</div>
-                <div class="card-text" v-if="!language">Команду Take IT отличает команда экспертов с более чем 20-летним
+                <div class="card-text" v-if="!language">Take IT отличает команда экспертов с более чем 20-летним
                   опытом работы, предоставляющая клиентам глубокие знания и глубокое понимание технологических требований,
                   помогающая предоставлять индивидуальные решения и качественную техническую поддержку.</div>
               </div>
@@ -230,12 +229,11 @@ const romanianLinks = [
             </div>
             <div class="percent-info">
               <div class="percent-info-title" v-if="language">
-                INOVĂM CU <span class="bold-green">EFICIENȚĂ</span>, TRANSFORMĂM PROVOCĂRI ÎN <span
-                  class="bold-green">OPORTUNITĂȚI</span>, ADUCÂND SOLUȚII DE IMPACT.
+                Inovăm cu <span class="bold-green"> eficiență</span>, transformăm <span
+                  class="bold-green"> oportunități</span>, aducând soluții de impact
               </div>
-              <div class="percent-info-title" v-if="!language">МЫ <span class="bold-green">ЭФФЕКТИВНО</span> ВНЕДРЯЕМ
-                ИННОВАЦИИ, ПРЕВРАЩАЕМ ПРОБЛЕМЫ В <span class="bold-green">ВОЗМОЖНОСТИ</span>, ПРЕДЛАГАЯ ЭФФЕКТИВНЫЕ
-                РЕШЕНИЯ.
+              <div class="percent-info-title" v-if="!language">Мы <span class="bold-green"> эффективно</span> недряем инновации , превращаем проблемы в <span class="bold-green"> возможности</span>, предлагая эффективные
+                решения.
               </div>
               <router-link to="/About" class="percent-link" v-if="language">Află mai multe despre noi</router-link>
               <router-link to="/About" class="percent-link" v-if="!language">Узнайте больше о нас</router-link>
@@ -396,9 +394,9 @@ const romanianLinks = [
         <Contact :language="language"/>
         <div class="banner">
           <div class="products-banner wrapper">
-            <div class="banner-title" v-if="language">Descoperiți produsele partenerilor noștri.</div>
-            <div class="banner-title" v-if="!language">Откройте для себя продукты наших партнеров.</div>
-            <div class="banner-btn">Vizualizați Ofertele</div>
+            <div class="banner-title" v-if="language">Descoperiți produsele partenerilor noștri</div>
+            <div class="banner-title" v-if="!language">Откройте для себя продукты наших партнеров</div>
+            <a href="https://catalog.takeit.md/index.php?dispatch=categories.view&category_id=204" class="banner-btn">Vizualizați Ofertele</a>
           </div>
         </div>
         </div>

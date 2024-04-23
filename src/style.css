@@ -218,8 +218,8 @@ template {
 }
 
 .swiper-pagination-bullet {
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   text-align: center;
   line-height: 20px;
   font-size: 12px;
@@ -260,7 +260,7 @@ template {
   padding: 25px 0;
   margin-right: 10px;
   z-index: 10;
-  background-color: #00173077;
+  background: var(--darker-blocks, #001730);
 }
 
 .wrapper {
@@ -757,7 +757,7 @@ template {
 }
 
 .percent-link:hover {
-  color: #445aa5;
+  color: #7C8A9A;
   text-decoration: none;
 }
 
@@ -766,7 +766,7 @@ template {
 }
 
 .nav-btn:hover {
-  color: #445aa5;
+  color: #7C8A9A;
   text-decoration: none;
 }
 
@@ -799,7 +799,7 @@ template {
 .shorthand-opening {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 15px;
 }
 
 .shorthand-svg {
@@ -845,7 +845,7 @@ template {
 }
 
 .shorthand-one:hover {
-  color: #445aa5;
+  color: #7C8A9A;
   text-decoration: none;
 }
 
@@ -878,7 +878,7 @@ template {
   max-width: 1349px;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #093565;
+  background: #0c2846;
   padding: 40px 75px;
   margin: 0 10px;
   display: flex;
@@ -1141,7 +1141,7 @@ template {
   border: none;
   height: 311px;
   resize: none;
-  padding: 43px 17px;
+  padding: 43px 32px;
   color: rgb(248, 248, 248);
   font-family: "Montserrat";
   font-size: 20px;
@@ -1164,11 +1164,14 @@ template {
   border-radius: 100px;
   padding: 15px 0;
 }
-
+.send-message-btn:hover{
+  color: #7C8A9A;
+  border: 1px solid #7C8A9A;
+}
 .shorthand-menu-opened {
   position: absolute;
   top: 30px;
-  left: -108px;
+  left: -128px;
   border-radius: 20px;
   background: #001730;
   z-index: 3;
@@ -1230,8 +1233,8 @@ template {
 
 .banner-btn:hover {
   text-decoration: none;
-  color: #8194a8;
-  border: 2px solid #8194a8;
+  color: #7C8A9A;
+  border: 2px solid #7C8A9A;
 }
 
 .footer {
@@ -1240,7 +1243,6 @@ template {
   display: flex;
   height: 100%;
   gap: 61px;
-  align-items: center;
 }
 
 .links-info {
@@ -1250,7 +1252,7 @@ template {
 
 .links-info:hover {
   text-decoration: none;
-  color: #0056b3;
+  color: #7C8A9A;
 }
 
 .one-suggestion {
@@ -1297,6 +1299,7 @@ template {
 
 .links:hover {
   text-decoration: none;
+  color: #7C8A9A;
 }
 
 .links {
@@ -1316,7 +1319,7 @@ template {
   flex-direction: column;
   gap: 17px;
   position: absolute;
-  bottom: -100px;
+  bottom: 90px;
 }
 
 .social-links-title {
@@ -1333,7 +1336,9 @@ template {
   display: flex;
   gap: 50px;
 }
-
+.social-links-svg a:hover svg path{
+  fill: #192ccf;
+}
 .parteners-img {
   max-height: 81px;
   height: 100%;
@@ -1353,7 +1358,7 @@ template {
   align-items: center;
   position: absolute;
   right: 10px;
-  bottom: -100px;
+  bottom: 90px;
 }
 
 .adreas-word {
@@ -1371,6 +1376,7 @@ template {
     height: 100%;
     position: relative;
     padding: 88px 38px;
+    align-items: center;
   }
 
   .footer-logo {
@@ -1521,6 +1527,7 @@ template {
 
   .navbar-fixed {
     justify-content: space-between;
+    max-width: 1349px;
   }
 
   .logos-info {
@@ -1712,11 +1719,20 @@ template {
   .nav {
     padding-top: 72px;
   }
-
+  .percent-link{
+    font-size: 15px;
+  }
   .opened-menu {
     display: block;
   }
-
+ .contact-svg{
+  display: flex;
+  width: 16px;
+ }
+ .swipe-hand{
+  display: flex;
+  width: 34px;
+}
   .fixed {
     display: block;
   }
@@ -1804,7 +1820,7 @@ template {
   .menu-info {
     display: grid;
     grid-template-columns: 100px 100px;
-    grid-column-gap: 119px;
+    grid-column-gap: 95px;
     grid-row-gap: 65px;
   }
 
@@ -1966,7 +1982,7 @@ template {
   }
 
   .percent-slide {
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 70px;
     padding: 0;
   }
@@ -2032,7 +2048,7 @@ template {
   .clients-logos {
     display: grid;
     gap: 20px;
-    grid-template-columns: 190px 160px;
+    grid-template-columns: 80px 80px 80px;
     justify-content: center;
     align-items: center;
     animation: none;
@@ -2051,14 +2067,14 @@ template {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 192px;
-    max-height: 61px;
+    width: 70px;
+    height: 80px;
   }
 
   .clients-logos-img img {
     width: 100%;
     height: 100%;
-    object-fit: none;
+    object-fit: contain;
 
   }
 

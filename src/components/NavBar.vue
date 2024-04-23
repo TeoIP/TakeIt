@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted ,onBeforeUnmount } from 'vue';
 import router from '../router';
+import { RouterLink } from 'vue-router';
 
 const shorthandMenu = ref(false)
 const showLanguage = ref(true)
@@ -67,14 +68,10 @@ onBeforeUnmount(() => {
                 <a href="https://shop.msoft.md/index.php?dispatch=categories.view&category_id=167" class="nav-btn" v-if="language">Catalog</a>
                 <a href="https://shop.msoft.md/index.php?dispatch=categories.view&category_id=167" class="nav-btn" v-if="!language">Каталог</a>
               </div>
-              <div class="about">
-                <router-link to="/About" class="nav-btn" v-if="language">Despre Noi</router-link>
-                <router-link to="/About" class="nav-btn" v-if="!language">О нас</router-link>
-              </div>
               <div class="shorthand">
                 <div class="shorthand-opening" @click="shorthand()">
-                <span class="nav-btn" v-if="language">Prescurtari</span>
-                <span class="nav-btn" v-if="!language">Ярлыки</span>
+                <RouterLink to="/" class="nav-btn" v-if="language">Acasă</RouterLink>
+                <RouterLink to="/" class="nav-btn" v-if="!language">Домой</RouterLink>
                 <div class="shorthand-svg" :class="{ rotate: shorthandMenu }">
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="10" viewBox="0 0 25 10" fill="none">
                     <path
@@ -84,8 +81,7 @@ onBeforeUnmount(() => {
                 </div>
               </div>
                 <div :class="{ 'shorthand-menu': !shorthandMenu, 'shorthand-menu-opened': shorthandMenu }">
-                  <router-link to="/" class="shorthand-one" v-if="language">Acasă</router-link>
-                  <router-link to="/" class="shorthand-one" v-if="!language">Домой</router-link>
+
                   <a v-for="link in links" :key="link.id" :href="link.href" class="shorthand-one" v-if="language">
                      {{ link.label }}
                   </a>
@@ -93,6 +89,10 @@ onBeforeUnmount(() => {
                      {{ link.rus }}
                   </a>
                 </div>
+              </div>
+              <div class="about">
+                <router-link to="/About" class="nav-btn" v-if="language">Despre Noi</router-link>
+                <router-link to="/About" class="nav-btn" v-if="!language">О нас</router-link>
               </div>
             </div>
             <div class="nav-right">
@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div class="menu-info-one">
-                  <div class="menu-info-title" v-if="language">Pagini Principale</div>
+                  <div class="menu-info-title" v-if="language">Pagina Principală</div>
                   <div class="menu-info-title" v-if="!language">Главные страницы</div>
                   <div class="menu-info-suggestion">
                     <router-link to="/" class="one-suggestion" v-if="language">Acasă</router-link>

@@ -24,7 +24,7 @@ function toggleLanguage(){
           <NavBar @toggleLanguage="toggleLanguage" :links="romanianLinks"></NavBar>
         <div class="first-slide wrapper">
             <div class="first-slide-svg">
-              <img src="../assets/Background.png" alt=""></div>
+              <img src="/src/assets/background.svg" alt=""></div>
             <div class="first-slide-words">
               <div class="first-slide-title" v-if="language">Despre TakeIT</div>
               <div class="first-slide-title" v-if="!language">Об <span class="green-title">TakeIT</span></div>
@@ -39,10 +39,10 @@ function toggleLanguage(){
       <div class="about-us-card-title" v-if="language">Cine suntem noi?</div>
       <div class="about-us-card-title" v-if="!language">Кто мы?</div>
       <div class="about-us-card-text" v-if="language">
-        Suntem <span class="green">Take IT</span>, o companie dedicată să aducă afacerile în vârful tehnologiei. Echipa noastră pasionată, creativă și experimentată se angajează să transforme viziunile clienților în realitate în domeniul tehnologiilor. Credem că inovația este <span class="green">cheia succesului</span> într-o lume în continuă schimbare, oferind soluții tehnologice de ultimă generație adaptate la nevoile specifice ale fiecărui client. Indiferent dacă sunteți o afacere în expansiune sau o startup dornică să se facă remarcată, suntem partenerii ideali pentru a vă ghida în călătoria dumneavoastră digitală.
+        Suntem <span class="green">Take IT</span>, companie dedicată să aducă afacerile în vârful tehnologiei. Echipa noastră pasionată, creativă și experimentată se angajează să transforme viziunile clienților în realitate în domeniul tehnologiilor. Credem că inovația este <span class="green">cheia succesului</span> într-o lume în continuă schimbare, oferind soluții tehnologice de ultimă generație adaptate la nevoile specifice ale fiecărui client. Indiferent dacă sunteți o afacere în expansiune sau o startup dornică să se facă remarcat, suntem partenerii ideali pentru a vă ghida în călătoria dumneavoastră digitală.
       </div>
       <div class="about-us-card-text" v-if="!language">
-        МЫ <span class="green">Take IT</span>, Компания, посвященная тому, чтобы привести бизнес на вершину технологий.Наша страстная, творческая и опытная команда обязуется превратить видения клиентов в реальность в области технологий.Мы считаем, что инновации-это <span class = "green"> ключ к успеху </span> в постоянно меняющемся мире, предлагая современные технологические решения, адаптированные к конкретным потребностям каждого клиента.Независимо от того, являетесь ли вы расширяющимся бизнесом или нетерпеливым стартапом, который будет замечен, мы - идеальные партнеры, которые помогут вам в цифровом путешествии.
+        МЫ <span class="green">Take IT</span>, компания, посвященная тому, чтобы привести бизнес на вершину технологий.Наша страстная, творческая и опытная команда обязуется превратить видения клиентов в реальность в области технологий.Мы считаем, что инновации-это <span class = "green"> ключ к успеху </span> в постоянно меняющемся мире, предлагая современные технологические решения, адаптированные к конкретным потребностям каждого клиента.Независимо от того, являетесь ли вы расширяющимся бизнесом или нетерпеливым стартапом, который будет замечен, мы - идеальные партнеры, которые помогут вам в цифровом путешествии.
       </div>
       <div class="about-us-shape"></div>
     </div>
@@ -51,7 +51,7 @@ function toggleLanguage(){
   <div class="one-slide" id="result">
     <div class="result-container wrapper">
       <div class="result-title" v-if="language">Lăsăm <span class="green">cifrele</span> să vorbească în locul nostru!</div>
-      <div class="result-title" v-if="!language">Мы оставляем <span class = "green"> фигуры </span> говорить у нас на месте!</div>
+      <div class="result-title" v-if="!language">Мы оставляем <span class = "green"> цифрам </span> говорить за нас!</div>
       <div class="result-numbers">
         <div class="result-numbers-one">
           <div class="result-numbers-title">1000</div>
@@ -82,7 +82,7 @@ function toggleLanguage(){
       <div class="one-aim">
         <div class="one-aim-title" v-if="language">Obiectiv 1</div>
         <div class="one-aim-title" v-if="!language">Цель 1</div>
-        <div class="one-aim-subtitle" v-if="language">Optimizarea Proceselor Interne</div>
+        <div class="one-aim-subtitle" v-if="language">Optimizare Proceselor Interne</div>
         <div class="one-aim-subtitle" v-if="!language">Оптимизация внутренних процессов</div>
         <div class="one-aim-text" v-if="language">
           Take IT se dedică oferirii de soluții eficiente pentru optimizarea proceselor interne ale clienților săi. 
@@ -118,10 +118,10 @@ function toggleLanguage(){
       <div class="one-aim">
         <div class="one-aim-title" v-if="language">Obiectiv 3</div>
         <div class="one-aim-title" v-if="!language">Цель 3</div>
-        <div class="one-aim-subtitle" v-if="language">Asigurarea Loialității Clienților</div>
+        <div class="one-aim-subtitle" v-if="language">Asigurare Loialității Clienților</div>
         <div class="one-aim-subtitle" v-if="!language">Обеспечение лояльности клиентов</div>
         <div class="one-aim-text" v-if="language">
-          Take IT adoptă strategii proactive pentru menținerea și consolidarea loialității clienților. Prin implementarea constantă a soluțiilor inovatoare, compania rămâne în pas cu evoluțiile pieței și adaptarea la concurența dinamică. 
+          Take IT adoptă strategii proactive pentru menținerea și consolidarea loialității clienților. Prin implementarea constantă a soluțiilor inovatoare, compania rămâne în pas cu evoluțiile pieței și se adaptează la concurența dinamică. 
           <br>
           <br>
           În același timp, se concentrează asupra identificării și satisfacerii nevoilor clienților, construind relații solide și durabile.
@@ -140,7 +140,7 @@ function toggleLanguage(){
           <div class="products-banner wrapper">
             <div class="banner-title" v-if="language">Descoperiți produsele partenerilor noștri.</div>
             <div class="banner-title" v-if="!language">Откройте для себя продукты наших партнеров.</div>
-            <a href="https://shop.msoft.md/index.php?dispatch=product_features.view_all&filter_id=10" class="banner-btn">Vizualizați Ofertele</a>
+            <div class="banner-btn">Vizualizați Ofertele</div>
           </div>
   </div>
 </div>

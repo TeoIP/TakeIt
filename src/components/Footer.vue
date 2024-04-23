@@ -10,7 +10,7 @@ const props = defineProps(['language']);
       </div>
       <div class="footer-links">
         <div class="footer-links-one">
-          <div class="footer-links-one-title" v-if="language">Pagini Principale</div>
+          <div class="footer-links-one-title" v-if="language">Pagina Principală</div>
           <div class="footer-links-one-title" v-if="!language">Основные страницы</div>
           <div class="footer-links-one-under">
             <router-link to="/" class="links" v-if="language">Acasă</router-link>
