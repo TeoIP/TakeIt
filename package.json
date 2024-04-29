@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@unhead/vue": "^1.9.7",
+    "@vueuse/head": "^2.0.0",
     "@vueuse/motion": "^2.1.0",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
