@@ -6,21 +6,17 @@ import 'bootstrap/dist/css/bootstrap.css'
 import NavBar from "../components/NavBar.vue";
 import Footer from '../components/Footer.vue'
 import Contact from "../components/Contact.vue"
-import {useHead} from '@unhead/vue'
 
-useHead({
-      title: "TakeIT",
-      meta: [{
-        name: "The best company"
-      }]
-    }
-)
 
 register();
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import '../style.css';
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 
 const language = ref(true)
 

@@ -16,6 +16,10 @@ const language = ref(true)
 function toggleLanguage() {
   language.value = !language.value
 }
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 </script>
 
 <template>
